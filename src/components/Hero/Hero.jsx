@@ -183,17 +183,17 @@ const ECellHero = () => {
           <img
             src={ecellLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain translate-y-0 dark-mode-logo"
+            className="h-11 w-11 object-contain translate-y-0 dark-mode-logo"
           />
           <img
             src={ecellLightLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain scale-[1.3] translate-y-0 light-mode-logo preserve-color"
+            className="h-11 w-11 object-contain scale-[1.3] translate-y-0 light-mode-logo preserve-color"
           />
         </div>
       </nav>
 
-      <div className="flex flex-col justify-center min-h-screen relative px-4 pt-4 pb-4 md:pb-24 lg:pb-20 z-10">
+      <div className="flex flex-col justify-center min-h-screen relative px-4 pt-4 pb-24 sm:pb-12 md:pb-24 lg:pb-20 z-10">
 
         {/* Enhanced Initial Animation - "WE ARE ENTREPRENEURSHIP CELL" */}
         <motion.div
