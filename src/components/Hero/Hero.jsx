@@ -173,21 +173,21 @@ const ECellHero = () => {
       {/* Logos Section - responsive positioning */}
       <nav className="flex justify-between items-center px-4 md:px-8 pt-3.5 md:pt-4 relative z-50">
         {/* Left: Logo 1 & Logo 2 - always visible */}
-        <div className="flex gap-3 md:gap-6 items-end justify-center">
-          <img src={bmsitLogo} alt="BMSIT Logo" className="h-9 w-9 md:h-14 md:w-14 object-contain md:-translate-y-4" />
-          <img src={bicepLogo} alt="BICEP Logo" className="h-9 w-9 md:h-14 md:w-14 object-contain translate-y-3 md:-translate-y-1" />
+        <div className="flex gap-3 md:gap-6 items-end justify-center md:-translate-x-4">
+          <img src={bmsitLogo} alt="BMSIT Logo" className="h-10 w-10 md:h-14 md:w-14 object-contain md:-translate-y-6" />
+          <img src={bicepLogo} alt="BICEP Logo" className="h-10 w-10 md:h-14 md:w-14 object-contain translate-y-3 md:-translate-y-1" />
 
           {/* E-Cell Logo (mobile only) */}
           <div className="lg:hidden flex items-end">
             <img
               src={ecellOrLogo}
               alt="E-Cell Logo"
-              className="h-9 w-9 object-contain translate-y-4 dark-mode-logo"
+              className="h-10 w-10 object-contain translate-y-4 dark-mode-logo"
             />
             <img
               src={ecellLightLogo}
               alt="E-Cell Logo"
-              className="h-9 w-9 object-contain scale-[1.3] translate-y-4 light-mode-logo preserve-color"
+              className="h-10 w-10 object-contain scale-[1.3] translate-y-4 light-mode-logo preserve-color"
             />
           </div>
         </div>
@@ -197,12 +197,12 @@ const ECellHero = () => {
           <img
             src={ecellLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain translate-y-2 dark-mode-logo"
+            className="h-14 w-14 object-contain translate-y-0 dark-mode-logo"
           />
           <img
             src={ecellLightLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain scale-[1.3] translate-y-2 light-mode-logo preserve-color"
+            className="h-14 w-14 object-contain scale-[1.3] translate-y-0 light-mode-logo preserve-color"
           />
         </div>
       </nav>
