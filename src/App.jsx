@@ -232,7 +232,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showContent ? 1 : 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`min-h-screen ${isLightMode && !isSpl3 ? 'light-theme' : ''}`}
+                className={`min-h-screen ${isLightMode && !isSpl3 && location.pathname !== '/recap' ? 'light-theme' : ''}`}
               >
                 <Suspense fallback={<div className="min-h-screen"></div>}>
                   <ClearChunkRecoveryMarker />
