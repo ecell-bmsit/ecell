@@ -347,7 +347,7 @@ const MobileFooter = () => {
         {/* Main Grid */}
         <div className="px-6 sm:px-10 lg:px-16 py-14 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Left: Brand */}
-          <div className="space-y-5">
+          <div className="hidden md:block space-y-5">
             <div className="flex items-center gap-3">
               <img src={ecellLogoMobile} alt="E-Cell Logo" className="w-10 h-10 brightness-0 invert opacity-90" />
               <div>
@@ -359,7 +359,7 @@ const MobileFooter = () => {
 
           {/* Center: Navigation */}
           <div>
-            <h4 className="text-white/40 text-[11px] font-bold tracking-[0.2em] uppercase mb-5">Navigate</h4>
+            <h4 className="hidden md:block text-white/40 text-[11px] font-bold tracking-[0.2em] uppercase mb-5">Navigate</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
