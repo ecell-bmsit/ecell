@@ -219,7 +219,9 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <div className="border-t border-white/20">
+        <Footer />
+      </div>
 
     </div>
   );

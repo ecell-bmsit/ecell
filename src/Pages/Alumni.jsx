@@ -269,7 +269,7 @@ const EcellAlumniPage = () => {
           >
             <div 
               data-darkreader-ignore
-              className="flex items-center p-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+              className="flex items-center p-1.5 rounded-full border border-black/10 shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
               style={{ backgroundColor: '#f1f1f1', colorScheme: 'only light' }}
             >
               {batches.map((batch) => {

@@ -112,7 +112,7 @@ export function IdeaSectionHeader() {
                 <div style={{ fontFamily: 'var(--font-heading)' }} className="space-y-5 text-neutral-300 text-lg leading-relaxed">
                   <p>Got an idea but don't know where to start?</p>
                   <div className="text-2xl text-white font-medium pt-6">
-                    We help you build, refine, and launch it. Your idea stays yours. 🚀
+                    We help you build, refine, and launch it. Your idea stays yours.
                   </div>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export function IdeaSectionHeader() {
             {/* Mobile-only header */}
             <div className="lg:hidden text-center mb-8 px-2">
               <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Got an idea?</h2>
-              <p className="text-neutral-400 text-sm">We help you build, refine, and launch it. 🚀</p>
+              <p className="text-neutral-400 text-sm">We help you build, refine, and launch it.</p>
             </div>
 
             {/* Desktop: original black box wrapper | Mobile: no box */}
