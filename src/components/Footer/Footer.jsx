@@ -43,10 +43,10 @@ const DesktopFooter = () => {
                 className="w-[58px] h-[58px] object-contain brightness-0 invert opacity-90"
               />
               <div className="flex flex-col justify-center">
-                <h3 className="text-white text-[20px] lg:text-[22px] tracking-[-0.02em] leading-[1.15] uppercase">
+                <h3 className="text-white text-[20px] lg:text-[22px] tracking-[-0.02em] leading-[1.15] uppercase" style={{ fontFamily: 'var(--font-heading)' }}>
                   ENTREPRENEURSHIP CELL
                 </h3>
-                <p className="text-white/50 text-[14px] tracking-[0.2em] font-medium uppercase mt-1">
+                <p className="text-white/50 text-[14px] tracking-[0.2em] font-medium uppercase mt-1" style={{ fontFamily: 'var(--font-heading)' }}>
                   BMSIT&M
                 </p>
               </div>

@@ -117,14 +117,6 @@ const TeamPage = () => {
       {/* ════════════ HERO SECTION (original light design) ════════════ */}
       <div className="min-h-screen bg-[#f4f4f4] preserve-color relative overflow-hidden pb-8 md:pb-20">
 
-        {/* Grain overlay */}
-        <div
-          className="pointer-events-none fixed inset-0 opacity-[0.035] mix-blend-multiply z-50"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col">
 
           {/* Main hero block */}
@@ -197,14 +189,6 @@ const TeamPage = () => {
 
       {/* ════════════ TEAM GRID SECTION (dark, interactive) ════════════ */}
       <div className="bg-black relative overflow-hidden pb-32">
-
-        {/* Grain overlay for dark section */}
-        <div
-          className="pointer-events-none fixed inset-0 opacity-[0.06] mix-blend-screen z-50"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-20 lg:px-40 relative z-10 w-full flex flex-col items-start pt-6 md:pt-18">
 

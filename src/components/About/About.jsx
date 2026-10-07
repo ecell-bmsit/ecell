@@ -1,38 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import groupImg from '../../assets/group.webp';
 import video1 from '../../assets/video1.webm';
 
+const ScrollRevealWord = ({ word, index, count, progress }) => {
+  const reducedMotion = useReducedMotion();
+  const start = (index / count) * 0.88;
+  const end = Math.min(start + 0.16, 1);
+  const opacity = useTransform(progress, [start, end], [0.35, 1]);
+
+  return <motion.span style={{ opacity: reducedMotion ? 1 : opacity }}>{word}</motion.span>;
+};
+
 const ScrollRevealText = ({ text, className }) => {
-  const words = text.split(" ");
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start 85%', 'end 35%'],
+  });
+  const words = text.split(' ');
 
   return (
-    <motion.span
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "0px" }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: { staggerChildren: 0.08 } // rapid fire left-to-right
-        }
-      }}
-      className={className}
-    >
+    <span ref={targetRef} className={className}>
       {words.map((word, i) => (
         <span key={i}>
-          <motion.span
-            variants={{
-              hidden: { color: "gray", opacity: 0.4 },
-              visible: { color: "inherit", opacity: 1, transition: { duration: 0.4 } }
-            }}
-          >
-            {word}
-          </motion.span>
-          {i < words.length - 1 && " "}
+          <ScrollRevealWord word={word} index={i} count={words.length} progress={scrollYProgress} />
+          {i < words.length - 1 && ' '}
         </span>
       ))}
-    </motion.span>
+    </span>
   );
 };
 
@@ -56,7 +52,7 @@ const AboutSection = () => {
         <div className="max-w-6xl text-left" style={{ fontFamily: 'var(--font-body)' }}>
           <ScrollRevealText
             text="At E-CELL, we're a movement dedicated to helping students move forward. From discovering the perfect idea to building thriving startups, we make every step in entrepreneurship a positive one."
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl tracking-wide leading-[1.35] md:leading-[1.3]"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-semibold tracking-wide leading-[1.35] md:leading-[1.3]"
           />
         </div>
       </section>
@@ -111,13 +107,13 @@ const AboutSection = () => {
 
           {/* Right: Text Content directly below image */}
           <div className="space-y-10 text-left">
-            <p className="text-xl md:text-3xl lg:text-4xl leading-[1.4] tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-xl md:text-3xl lg:text-4xl font-semibold leading-[1.4] tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
               <ScrollRevealText
                 text="Founded on the belief that innovation should be empowering for everyone involved, E-CELL combines innovative tools, a student-centered approach, and a collaborative model to redefine what a modern cell can be."
                 className=""
               />
             </p>
-            <p className="text-lg md:text-2xl italic text-gray-400 leading-relaxed md:leading-loose tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg md:text-2xl font-semibold italic text-gray-400 leading-relaxed md:leading-loose tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
               <ScrollRevealText
                 text="Today, we're proud to support countless students on their entrepreneurial journeys."
                 className=""
