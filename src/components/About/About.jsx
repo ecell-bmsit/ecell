@@ -58,7 +58,7 @@ const AboutSection = () => {
       </section>
 
       {/* 2. Unified Content Section */}
-      <section className="pt-4 pb-24 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-stretch">
+      <section className="pt-4 pb-8 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-stretch">
 
         {/* Left Column: Heading + Video Frame */}
         <div className="md:col-span-4 flex flex-col justify-between pt-2 pb-15">

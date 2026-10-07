@@ -103,7 +103,7 @@ const ECellEventsScroll = () => {
   return (
     <>
       <div
-        className="preserve-color min-h-screen w-full pb-20 pt-28 md:pt-36 px-5 md:px-12 xl:px-20 transition-colors duration-300"
+        className="preserve-color min-h-screen w-full pb-20 pt-12 md:pt-36 px-5 md:px-12 xl:px-20 transition-colors duration-300"
         style={{ fontFamily: "var(--font-body)" }}
         id="events"
       >
