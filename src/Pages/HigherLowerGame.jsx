@@ -335,7 +335,6 @@ export default function HigherLowerGame() {
     return (
       <div className="min-h-screen bg-[#f9f9f9] text-[#1a1c1c] px-4 pt-24 pb-12 hl-grid-bg">
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
           .hl-grid-bg {
             background-image: radial-gradient(#1a1c1c 1px, transparent 1px);
             background-size: 28px 28px;
@@ -349,7 +348,7 @@ export default function HigherLowerGame() {
             box-shadow: 0px 0px 0px #1a1c1c;
           }
           .hl-title-stack {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: var(--font-heading);
             font-weight: 900;
             letter-spacing: -0.03em;
             line-height: 1;
@@ -396,7 +395,7 @@ export default function HigherLowerGame() {
                 color: "#fff",
                 border: "4px solid #1a1c1c",
                 boxShadow: "6px 6px 0px #1a1c1c",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
               }}
@@ -424,7 +423,7 @@ export default function HigherLowerGame() {
             <h2
               className="text-2xl md:text-3xl mb-6"
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
               }}
@@ -451,7 +450,7 @@ export default function HigherLowerGame() {
                 <label
                   className="block mb-2"
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 800,
                     textTransform: "uppercase",
                   }}
@@ -467,7 +466,7 @@ export default function HigherLowerGame() {
                   className="w-full px-4 py-3"
                   style={{
                     border: "3px solid #1a1c1c",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 600,
                     fontSize: "1.1rem",
                   }}
@@ -478,7 +477,7 @@ export default function HigherLowerGame() {
                 <label
                   className="block mb-2"
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 800,
                     textTransform: "uppercase",
                   }}
@@ -494,7 +493,7 @@ export default function HigherLowerGame() {
                   className="w-full px-4 py-3"
                   style={{
                     border: "3px solid #1a1c1c",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 600,
                     fontSize: "1.1rem",
                   }}
@@ -511,7 +510,7 @@ export default function HigherLowerGame() {
                   border: "4px solid #1a1c1c",
                   boxShadow: "8px 8px 0px #1a1c1c",
                   transition: "all 0.1s ease",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "1.25rem",
                   textTransform: "uppercase",
@@ -529,7 +528,6 @@ export default function HigherLowerGame() {
   return (
     <div className="min-h-screen bg-[#f9f9f9] text-[#1a1c1c] pt-24 hl-grid-bg">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
         .hl-grid-bg {
           background-image: radial-gradient(#1a1c1c 1px, transparent 1px);
           background-size: 28px 28px;
@@ -568,7 +566,7 @@ export default function HigherLowerGame() {
               color: "#fff",
               border: "4px solid #1a1c1c",
               boxShadow: "6px 6px 0px #1a1c1c",
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-heading)",
               fontWeight: 900,
               textTransform: "uppercase",
             }}
@@ -585,7 +583,7 @@ export default function HigherLowerGame() {
                 color: !gameOver && timeLeft <= 3 ? "#fff" : "#1a1c1c",
                 border: "4px solid #1a1c1c",
                 boxShadow: "6px 6px 0px #1a1c1c",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
                 fontSize: "1rem",
@@ -603,7 +601,7 @@ export default function HigherLowerGame() {
                 backgroundColor: "#d4f000",
                 border: "4px solid #1a1c1c",
                 boxShadow: "6px 6px 0px #bb0058",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
                 fontSize: "1.1rem",
@@ -617,7 +615,7 @@ export default function HigherLowerGame() {
         <h1
           className="mt-8 text-center"
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
+            fontFamily: "var(--font-heading)",
             fontWeight: 900,
             textTransform: "uppercase",
             fontStyle: "italic",
@@ -642,7 +640,7 @@ export default function HigherLowerGame() {
                 color: message.startsWith("CORRECT") ? "#1a1c1c" : "#fff",
                 border: "4px solid #1a1c1c",
                 boxShadow: "8px 8px 0px #1a1c1c",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
                 textAlign: "center",
@@ -657,13 +655,13 @@ export default function HigherLowerGame() {
           <div className="mt-8 text-center bg-[#0046fa] text-white p-12 border-4 border-[#1a1c1c] shadow-[8px_8px_0px_#1a1c1c] max-w-3xl mx-auto">
             <h2
               className="text-4xl font-black uppercase mb-8"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Game Rules
             </h2>
             <div
               className="text-lg mb-12 space-y-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-body)" }}
             >
               <p className="font-bold">
                 👉 Answer the question by clicking the correct option
@@ -685,13 +683,13 @@ export default function HigherLowerGame() {
           <div className="mt-8 text-center bg-[#0046fa] text-white p-12 border-4 border-[#1a1c1c] shadow-[8px_8px_0px_#1a1c1c] max-w-3xl mx-auto">
             <h2
               className="text-4xl font-black uppercase mb-8"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Game Rules
             </h2>
             <div
               className="text-lg mb-12 space-y-4"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "var(--font-body)" }}
             >
               <p className="font-bold">
                 👉 Answer the question by clicking the correct option
@@ -712,7 +710,7 @@ export default function HigherLowerGame() {
                 color: "#1a1c1c",
                 border: "4px solid #1a1c1c",
                 boxShadow: "8px 8px 0px #1a1c1c",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 fontSize: "3rem",
               }}
@@ -739,7 +737,7 @@ export default function HigherLowerGame() {
                     <div className="h-full flex flex-col items-center justify-center text-center">
                       <h2
                         style={{
-                          fontFamily: "'Space Grotesk', sans-serif",
+                          fontFamily: "var(--font-heading)",
                           fontWeight: 900,
                           textTransform: "uppercase",
                           lineHeight: 1.05,
@@ -761,7 +759,7 @@ export default function HigherLowerGame() {
                       backgroundColor: "#f9f9f9",
                       border: "4px solid #1a1c1c",
                       boxShadow: "6px 6px 0px #1a1c1c",
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 900,
                       fontSize: "2rem",
                     }}
@@ -783,7 +781,7 @@ export default function HigherLowerGame() {
                     <div className="h-full flex flex-col items-center justify-center text-center">
                       <h2
                         style={{
-                          fontFamily: "'Space Grotesk', sans-serif",
+                          fontFamily: "var(--font-heading)",
                           fontWeight: 900,
                           textTransform: "uppercase",
                           lineHeight: 1.05,
@@ -807,7 +805,7 @@ export default function HigherLowerGame() {
                   style={{
                     backgroundColor: "#1a1c1c",
                     color: "#fff",
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 800,
                     textTransform: "uppercase",
                     fontSize: "1.1rem",
@@ -822,7 +820,7 @@ export default function HigherLowerGame() {
               <div className="hl-card bg-white p-5">
                 <h4
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 900,
                     textTransform: "uppercase",
                     fontSize: "1.2rem",
@@ -833,7 +831,7 @@ export default function HigherLowerGame() {
                 <p
                   className="mt-2"
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 600,
                     color: "#434659",
                     lineHeight: 1.6,
@@ -860,7 +858,7 @@ export default function HigherLowerGame() {
             <React.Fragment key={i}>
               <span
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   color: "#d4f000",
                   textTransform: "uppercase",

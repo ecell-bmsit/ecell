@@ -27,7 +27,7 @@ import ecellLogoDesktop from '../../assets/ecell.png';
 
 const DesktopFooter = () => {
   return (
-    <footer className="w-full bg-black text-white hidden md:flex flex-col transition-all duration-300" style={{ fontFamily: 'Switzer, sans-serif' }}>
+    <footer className="w-full bg-black text-white hidden md:flex flex-col transition-all duration-300" style={{ fontFamily: 'var(--font-body)' }}>
       {/* Top Section */}
       <div className="flex w-full min-h-[400px] border-b border-[#222]">
 
@@ -103,7 +103,7 @@ const DesktopFooter = () => {
           <div className="flex-1 flex flex-col items-center justify-center text-center -mt-8">
             <h2
               className="text-[44px] lg:text-[54px] xl:text-[64px] font-black text-white/95 tracking-tighter leading-[0.95] mb-6"
-              style={{ fontFamily: 'Sora, sans-serif' }}
+              style={{ fontFamily: 'var(--font-heading)' }}
             >
               IDEATE.
               <br />
@@ -337,7 +337,7 @@ const MobileFooter = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-black" style={{ fontFamily: 'Sora, sans-serif' }}>
+    <footer className="relative overflow-hidden bg-black" style={{ fontFamily: 'var(--font-heading)' }}>
       {/* Animated Background */}
       <div className="absolute inset-0">
         <SpringWaveCanvas />

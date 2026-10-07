@@ -90,7 +90,7 @@ const Preloader = ({ onComplete }) => {
                   layout
                   key={row.id}
                   className={`flex ${step >= 3 ? 'flex-col space-y-0 sm:-space-y-2 md:-space-y-4 lg:-space-y-3' : 'flex-row gap-0'} items-center justify-center tracking-tight sm:tracking-tighter text-white font-bold sm:font-semibold text-[35px] leading-[0.95] sm:text-5xl md:text-6xl lg:text-[80px] sm:leading-none text-center px-4`}
-                  style={{ fontFamily: "'Nhass', sans-serif" }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
 
                   {/* Word 1: GLOBAL */}

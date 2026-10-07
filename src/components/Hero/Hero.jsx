@@ -221,7 +221,7 @@ const ECellHero = () => {
             {/* Mobile-first responsive text */}
             <motion.h1
               className="font-bold text-white leading-tight"
-              style={{ fontFamily: 'Sora, sans-serif' }}
+              style={{ fontFamily: 'var(--font-heading)' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.3 }}
@@ -253,7 +253,7 @@ const ECellHero = () => {
             {/* Left Text */}
             <div className={`text-right transform transition-all duration-2000 ease-out ${animationStage >= 2 ? 'translate-x-0 opacity-100' : 'translate-x-24 opacity-0'
               }`}>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                 WE<br />
                 <span className="italic font-light">ARE</span><br />
                 <span className="text-4xl lg:text-5xl xl:text-6xl">E-CELL</span>
@@ -271,7 +271,7 @@ const ECellHero = () => {
             {/* Right Text */}
             <div className={`text-left transform transition-all duration-2000 ease-out ${animationStage >= 2 ? 'translate-x-0 opacity-100' : '-translate-x-24 opacity-0'
               }`}>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
                 <span className="italic font-bold">IDEATE</span><br />
                 <span className="italic font-bold">INNOVATE</span><br />
                 <span className="italic font-bold">INSPIRE</span>
@@ -286,7 +286,7 @@ const ECellHero = () => {
             {/* Mobile Text - Centered */}
             <div className={`transform transition-all duration-2000 ease-out ${animationStage >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
               }`}>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight text-center" style={{ fontFamily: 'var(--font-heading)' }}>
                 WE ARE<br />
                 <span className="italic font-light">E-CELL</span>
               </h1>
@@ -308,7 +308,7 @@ const ECellHero = () => {
           {/* Description Text - Centered */}
           <div className={`mt-6 lg:mt-16 max-w-4xl mx-auto text-center transition-all duration-1500 ease-out ${animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`} style={{ transitionDelay: '800ms' }}>
-            <p className="text-gray-300 text-sm sm:text-base lg:text-xl leading-relaxed px-6 sm:px-4 text-center w-full box-border" style={{ fontFamily: 'Sora, sans-serif' }}>
+            <p className="text-gray-300 text-sm sm:text-base lg:text-xl leading-relaxed px-6 sm:px-4 text-center w-full box-border" style={{ fontFamily: 'var(--font-heading)' }}>
               Empowering the next generation of innovators and entrepreneurs,{' '}
               <br className="hidden sm:inline" />
               fostering creativity, leadership, and entrepreneurial mindset{' '}

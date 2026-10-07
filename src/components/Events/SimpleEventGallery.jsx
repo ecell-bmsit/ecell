@@ -9,7 +9,7 @@ const SimpleEventGallery = ({ title, titleLine2, images = [] }) => {
     <div className="min-h-screen bg-[#0d0d0d] text-white flex flex-col pt-24 pb-20">
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-8 mt-12">
         <div className="mb-16 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold italic text-white tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold italic text-white tracking-tight" style={{ fontFamily: 'var(--font-subheading)' }}>
             {title} {titleLine2}
           </h1>
           {images.length === 0 && (

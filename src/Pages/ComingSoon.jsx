@@ -1,5 +1,4 @@
 import React from 'react';
-import queraFont from './assets/Fonts/quera-font/Quera-DEMO-BF68be80d1aceec.otf';
 
 const ComingSoon = () => {
     return (
@@ -16,18 +15,10 @@ const ComingSoon = () => {
                 overflow: 'hidden'
             }}
         >
-            <style>{`
-                @font-face {
-                    font-family: 'Quera';
-                    src: url(${queraFont}) format('opentype');
-                    font-weight: bold;
-                    font-style: normal;
-                }
-            `}</style>
             <h1 
                 style={{ 
                     color: 'white',
-                    fontFamily: "'Quera', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 'bold',
                     fontSize: 'clamp(2rem, 10vw, 8rem)',
                     textAlign: 'center',

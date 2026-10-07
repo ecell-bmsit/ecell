@@ -1,71 +1,65 @@
-/* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap');
-
+/* Shared typography for the site. */
 @font-face {
-  font-family: 'Robit';
-  src: url('./Pages/assets/Robit.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Sora';
+  src: url('/main_fonts/main-fonts/Sora/Sora-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Nhass';
-  src: url('./Pages/assets/NHaasGroteskTXPro-75Bd.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'Urbanist';
+  src: url('/main_fonts/main-fonts/Urbanist/Urbanist-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'SuisseIntl';
-  src: url('./Pages/assets/suisse-intl.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Urbanist';
+  src: url('/main_fonts/main-fonts/Urbanist/Urbanist-Italic-VariableFont_wght.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'DIN Pro';
-  src: url('./Pages/assets/din-pro-font/DIN Pro 400.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'Georgia Pro';
+  src: url('/main_fonts/main-fonts/Georgia-Pro/GeorgiaPro-Regular.ttf') format('truetype');
   font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'DIN Pro';
-  src: url('./Pages/assets/din-pro-font/DIN Pro Bold 700.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
+  font-family: 'Georgia Pro';
+  src: url('/main_fonts/main-fonts/Georgia-Pro/GeorgiaPro-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Quera';
-  src: url('./Pages/assets/Fonts/quera-font/Quera-DEMO-BF68be80d1aceec.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'Georgia Pro';
+  src: url('/main_fonts/main-fonts/Georgia-Pro/GeorgiaPro-Semibold.ttf') format('truetype');
   font-style: normal;
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Boreck';
-  src: url('./Pages/assets/Fonts/Boreck Display Font/Boreck Display/BoreckDisplay-Bold.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'Georgia Pro';
+  src: url('/main_fonts/main-fonts/Georgia-Pro/GeorgiaPro-Bold.ttf') format('truetype');
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'ClashDisplay';
-  src: url('./Pages/assets/Fonts/ClashDisplay_Complete/Fonts/OTF/ClashDisplay-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SpaceGrotesk';
-  src: url('./Pages/assets/Fonts/SpaceGrotesk_Complete/Fonts/OTF/SpaceGrotesk-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
 }
 
 :root {
-  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-heading: 'Sora', system-ui, sans-serif;
+  --font-subheading: 'Georgia Pro', Georgia, serif;
+  --font-body: 'Urbanist', system-ui, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   font-weight: 400;
 
@@ -84,7 +78,7 @@
 }
 
 .font-alt {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
 }
 
@@ -142,8 +136,13 @@ body {
 }
 
 h1 {
+  font-family: var(--font-heading);
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-subheading);
 }
 
 

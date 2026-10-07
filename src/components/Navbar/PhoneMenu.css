@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'SeasonSerif';
-    src: url('../../Pages/assets/Fonts/SeasonSerif-TRIAL-Regular.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'SeasonSerifbold';
-    src: url('../../Pages/assets/Fonts/SeasonSerif-TRIAL-SemiBold.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-}
-
 .phone-menu-overlay {
     position: fixed;
     inset: 0;
@@ -22,7 +8,7 @@
     display: flex;
     flex-direction: column;
     padding: 80px 24px 40px 24px;
-    font-family: 'SeasonSerif', serif;
+    font-family: var(--font-subheading);
 }
 
 @media (min-width: 768px) {
@@ -82,7 +68,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
-    font-family: 'SeasonSerif', serif;
+    font-family: var(--font-subheading);
 }
 
 .footer-link {
@@ -192,7 +178,7 @@
     font-size: 2.8rem;
     font-weight: 500;
     color: #1a1a1a;
-    font-family: 'SeasonSerif', serif;
+    font-family: var(--font-subheading);
 }
 
 .menu-logo-img {
@@ -204,5 +190,5 @@
 
 .menu-logo-text {
     font-size: 2.6rem;
-    font-family: 'SeasonSerifBold', serif;
+    font-family: var(--font-subheading);
 }

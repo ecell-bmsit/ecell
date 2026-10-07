@@ -3,7 +3,7 @@
   color: #e0e0e0;
   min-height: 100vh;
   padding: 2rem;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 
 .al-header {

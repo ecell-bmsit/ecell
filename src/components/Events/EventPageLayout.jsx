@@ -51,14 +51,14 @@ const EventPageLayout = ({
   return (
     <div
       className="min-h-screen bg-[#0d0d0d] text-white flex flex-col"
-      style={{ fontFamily: 'Sora, sans-serif' }}
+      style={{ fontFamily: 'var(--font-heading)' }}
     >
       <div className="flex flex-1 min-h-screen">
         <aside className="w-full lg:w-[34%] xl:w-[30%] flex-shrink-0 border-r border-white/10 flex flex-col p-6 lg:p-8 xl:p-10">
           <div className="mb-8">
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl font-bold italic leading-tight text-white"
-              style={{ fontFamily: 'Georgia, serif' }}
+              style={{ fontFamily: 'var(--font-subheading)' }}
             >
               <span className="block">{title}</span>
               {titleLine2 && <span className="block">{titleLine2}</span>}
@@ -146,7 +146,7 @@ const EventPageLayout = ({
                     <div className="flex-shrink-0 flex flex-col p-3 sm:p-4">
                       <h3
                         className="text-sm sm:text-base font-bold italic text-white leading-tight line-clamp-2"
-                        style={{ fontFamily: 'Georgia, serif' }}
+                        style={{ fontFamily: 'var(--font-subheading)' }}
                       >
                         {item.title}
                       </h3>

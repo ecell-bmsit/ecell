@@ -71,13 +71,13 @@ const AlumniCard = ({ member, index }) => {
       <div className="flex flex-col items-start mt-5 px-0 w-full text-left">
         <h3 
           className="text-[22px] md:text-[24px] text-black tracking-wide leading-[1.1]"
-          style={{ fontFamily: "'Robit', sans-serif" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           {member.name}
         </h3>
         <p 
           className="text-slate-500 font-medium text-[0.75rem] md:text-[0.85rem] uppercase tracking-[0.2em] mt-2"
-          style={{ fontFamily: "'SuisseIntl', monospace, sans-serif" }}
+          style={{ fontFamily: "var(--font-body)" }}
         >
           {member.position}
         </p>
@@ -253,7 +253,7 @@ const EcellAlumniPage = () => {
           >
             <h2 
               className="text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-center leading-[0.9] tracking-tighter text-black mb-10 mt-10"
-              style={{ fontFamily: "'Nhass', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Our Alumni Network
             </h2>
@@ -285,7 +285,7 @@ const EcellAlumniPage = () => {
                     style={{ 
                       WebkitTapHighlightColor: "transparent",
                       color: isActive ? "#ffffff" : "#2d2b27",
-                      fontFamily: "'Robit', sans-serif"
+                      fontFamily: "var(--font-heading)"
                     }}
                   >
                     {isActive && (

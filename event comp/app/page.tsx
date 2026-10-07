@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import DynamicFrameLayout from "../components/DynamicFrameLayout"
-import { ppEditorialNewUltralightItalic, inter } from "./fonts"
+import { sora, georgiaPro, urbanist } from "./fonts"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen bg-[#141414] p-4 md:p-8 ${ppEditorialNewUltralightItalic.variable} ${inter.variable}`}
+      className={`min-h-screen bg-[#141414] p-4 md:p-8 ${georgiaPro.variable} ${urbanist.variable}`}
     >
       {/* Breaking News Banner - Always at the top */}
       <BreakingNewsBar />
@@ -82,7 +82,7 @@ export default function Home() {
         {/* Left Content */}
         <div className="w-full lg:w-[300px] flex-shrink-0 flex flex-col gap-6">
           <h1
-            className={`${ppEditorialNewUltralightItalic.className} text-4xl md:text-5xl lg:text-6xl font-light italic text-white/80 tracking-tighter leading-[130%]`}
+            className={`${sora.className} text-4xl md:text-5xl lg:text-6xl font-light italic text-white/80 tracking-tighter leading-[130%]`}
             style={{ fontSize: `${(isMobile ? 3 : 4) * headerSize}rem` }}
           >
             {isMobile ? "TFARN" : "The Fast\nand Real\nNews"}
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`${inter.className} flex flex-col gap-6 text-white/50 text-sm font-light max-w-[300px]`}
+            className={`${urbanist.className} flex flex-col gap-6 text-white/50 text-sm font-light max-w-[300px]`}
             style={{ fontSize: `${0.875 * textSize}rem` }}
           >
             <div className="space-y-6">

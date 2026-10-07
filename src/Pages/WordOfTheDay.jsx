@@ -83,9 +83,9 @@ export default function WordOfTheDay() {
                     style={{ y: titleY }}
                     className="relative z-10 w-full flex flex-col items-center justify-center px-4"
                 >
-                    <span className="block text-[24vw] md:text-[16vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "'Nhass', sans-serif" }}>WORD</span>
-                    <span className="block text-[15vw] md:text-[10vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "'Nhass', sans-serif" }}>OF THE</span>
-                    <span className="block text-[24vw] md:text-[16vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "'Nhass', sans-serif" }}>DAY</span>
+                    <span className="block text-[24vw] md:text-[16vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "var(--font-heading)" }}>WORD</span>
+                    <span className="block text-[15vw] md:text-[10vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "var(--font-heading)" }}>OF THE</span>
+                    <span className="block text-[24vw] md:text-[16vw] font-black text-white leading-[0.85] tracking-[-0.04em] text-center" style={{ fontFamily: "var(--font-heading)" }}>DAY</span>
                 </motion.div>
             </div>
 
@@ -114,7 +114,7 @@ export default function WordOfTheDay() {
                                 </span>
                                 <h2
                                     className="text-[52px] leading-tight md:text-8xl font-black tracking-tighter text-white mb-6"
-                                    style={{ fontFamily: "'Nhass', sans-serif" }}
+                                    style={{ fontFamily: "var(--font-heading)" }}
                                 >
                                     {latestWord.title}
                                 </h2>
@@ -201,7 +201,7 @@ export default function WordOfTheDay() {
                                 <span
                                     key={i}
                                     className="text-[13vw] md:text-[11vw] font-black text-white tracking-tighter leading-none pr-[4vw] select-none"
-                                    style={{ fontFamily: "'Nhass', sans-serif" }}
+                                    style={{ fontFamily: "var(--font-heading)" }}
                                 >
                                     Featured Words@&nbsp;
                                 </span>
@@ -312,7 +312,7 @@ function WordCard({ word }) {
 
             {/* Title */}
             <h3
-                style={{ fontFamily: "'Robit', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
                 className="text-left text-[22px] md:text-[25px] font-semibold text-white leading-[1.25] tracking-tight mb-2 group-hover:text-neutral-400 transition-colors duration-300"
             >
                 {word.title}
@@ -320,7 +320,7 @@ function WordCard({ word }) {
 
             {/* Category */}
             <p
-                style={{ fontFamily: "'Robit', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
                 className="text-left text-[14px] text-neutral-500 font-normal mb-3"
             >
                 {word.category}
@@ -328,7 +328,7 @@ function WordCard({ word }) {
 
             {/* Read more */}
             <span
-                style={{ fontFamily: "'Robit', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
                 className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-white/70 group-hover:text-white group-hover:gap-2.5 transition-all duration-300"
             >
                 Read more <span className="text-base">→</span>

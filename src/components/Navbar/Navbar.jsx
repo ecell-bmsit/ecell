@@ -89,7 +89,7 @@ export default function Navbar() {
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
         } md:top-6 md:left-1/2 md:-translate-x-1/2 top-6 right-4`}
         style={{
-          fontFamily: "Sora, sans-serif",
+          fontFamily: "var(--font-heading)",
         }}
       >
         {/* Desktop & Mobile Container */}

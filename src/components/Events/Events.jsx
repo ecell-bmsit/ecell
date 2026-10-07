@@ -104,7 +104,7 @@ const ECellEventsScroll = () => {
     <>
       <div
         className="preserve-color min-h-screen w-full pb-20 pt-28 md:pt-36 px-5 md:px-12 xl:px-20 transition-colors duration-300"
-        style={{ fontFamily: "'Inter', sans-serif" }}
+        style={{ fontFamily: "var(--font-body)" }}
         id="events"
       >
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
@@ -124,7 +124,7 @@ const ECellEventsScroll = () => {
           </h1>
           <p 
             className="event-subtext text-[15px] md:text-[17px] leading-[1.6] max-w-[420px] font-normal mt-2 text-justify"
-            style={{ fontFamily: "'Avalon', sans-serif" }}
+            style={{ fontFamily: "var(--font-body)" }}
           >
             From startup mixers and founder workshops to pitch days and hackathons. Whether you're looking to build, network, or just explore the world of entrepreneurship, there's something here for you.
           </p>
