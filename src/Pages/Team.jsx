@@ -189,8 +189,15 @@ const TeamPage = () => {
 
       {/* ════════════ TEAM GRID SECTION (dark, interactive) ════════════ */}
       <div className="bg-black relative overflow-hidden pb-32">
+        {/* Smoothed Blending Gradient to prevent banding */}
+        <div 
+          className="hide-in-light-theme w-full h-24 md:h-32 absolute top-0 left-0 right-0 z-0 pointer-events-none"
+          style={{ 
+            background: 'linear-gradient(to bottom, #f4f4f4 0%, #dcdcdc 15%, #999999 45%, #333333 75%, #000000 100%)' 
+          }}
+        ></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 md:px-20 lg:px-40 relative z-10 w-full flex flex-col items-start pt-6 md:pt-18">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-20 lg:px-40 relative z-10 w-full flex flex-col items-start pt-10 md:pt-16">
 
           {/* 1. Faculty Coordinator */}
           <TeamSectionGroup title="Faculty Coordinator" members={teamData.faculty_coordinator} showDivider={false} centered={true} />
