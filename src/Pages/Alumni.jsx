@@ -70,13 +70,13 @@ const AlumniCard = ({ member, index }) => {
       {/* Content Below Image */}
       <div className="flex flex-col items-start mt-5 px-0 w-full text-left">
         <h3 
-          className="text-[22px] md:text-[24px] text-black tracking-wide leading-[1.1]"
+          className="text-[22px] md:text-[24px] text-white tracking-wide leading-[1.1]"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {member.name}
         </h3>
         <p 
-          className="text-slate-500 font-medium text-[0.75rem] md:text-[0.85rem] uppercase tracking-[0.2em] mt-2"
+          className="text-gray-400 font-medium text-[0.75rem] md:text-[0.85rem] uppercase tracking-[0.2em] mt-2"
           style={{ fontFamily: "var(--font-body)" }}
         >
           {member.position}
@@ -238,7 +238,7 @@ const EcellAlumniPage = () => {
 
   return (
     <div 
-      className="bg-white text-black min-h-screen"
+      className="bg-black text-white min-h-screen"
       data-darkreader-ignore
       style={{ colorScheme: 'only light' }}
     >
@@ -252,7 +252,7 @@ const EcellAlumniPage = () => {
             className="mb-12"
           >
             <h2 
-              className="text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-center leading-[0.9] tracking-tight text-black mb-10 mt-10"
+              className="text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-center leading-[0.9] tracking-tight text-white mb-10 mt-10"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Our Alumni Network
@@ -269,8 +269,8 @@ const EcellAlumniPage = () => {
           >
             <div 
               data-darkreader-ignore
-              className="flex items-center p-1.5 rounded-full border border-black/10 shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
-              style={{ backgroundColor: '#f1f1f1', colorScheme: 'only light' }}
+              className="flex items-center p-1.5 rounded-full border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
+              style={{ backgroundColor: '#141414', colorScheme: 'only light' }}
             >
               {batches.map((batch) => {
                 const isActive = activeBatch === batch;
@@ -284,7 +284,7 @@ const EcellAlumniPage = () => {
                     className="relative px-8 py-3 rounded-full text-[16px] tracking-wide transition-colors duration-300 outline-none cursor-pointer"
                     style={{ 
                       WebkitTapHighlightColor: "transparent",
-                      color: isActive ? "#ffffff" : "#2d2b27",
+                      color: isActive ? "#111111" : "#b8b8b8",
                       fontFamily: "var(--font-heading)"
                     }}
                   >
@@ -293,7 +293,7 @@ const EcellAlumniPage = () => {
                         data-darkreader-ignore
                         layoutId="active-batch-pill"
                         className="absolute inset-0 rounded-full"
-                        style={{ backgroundColor: '#1a1a1a', boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}
+                        style={{ backgroundColor: '#f2f2f2', boxShadow: '0 2px 8px rgba(0,0,0,0.18)' }}
                         transition={{ type: "spring", stiffness: 500, damping: 35 }}
                       />
                     )}

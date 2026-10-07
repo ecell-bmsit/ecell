@@ -20,6 +20,20 @@ import Preloader from "./components/Preloader/Preloader";
 import { WordProvider } from "./context/WordContext";
 import "./App.css";
 
+const CHUNK_RECOVERY_KEY = "ecell-chunk-recovery";
+
+const ClearChunkRecoveryMarker = () => {
+  useEffect(() => {
+    try {
+      sessionStorage.removeItem(CHUNK_RECOVERY_KEY);
+    } catch {
+      // Storage may be unavailable in restricted browser contexts.
+    }
+  }, []);
+
+  return null;
+};
+
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -30,15 +44,42 @@ class ErrorBoundary extends Component {
   }
   componentDidCatch(error, errorInfo) {
     console.error("Runtime error caught by boundary:", error, errorInfo);
+
+    const message = error?.message || String(error);
+    const isChunkLoadError = /failed to fetch dynamically imported module|importing a module script failed|loading chunk .* failed|chunkloaderror|failed to load module script/i.test(message);
+
+    if (isChunkLoadError) {
+      const failedResource = message.match(/https?:\/\/[^\s]+|\/assets\/[^\s]+/)?.[0] || message;
+
+      try {
+        const previousFailure = sessionStorage.getItem(CHUNK_RECOVERY_KEY);
+        if (previousFailure !== failedResource) {
+          sessionStorage.setItem(CHUNK_RECOVERY_KEY, failedResource);
+          window.location.reload();
+        }
+      } catch {
+        // Fall through to the recovery screen when storage is unavailable.
+      }
+    }
   }
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "2rem", color: "red", background: "white", minHeight: "100vh" }}>
-          <h1>Something went wrong.</h1>
-          <pre>{this.state.error?.toString()}</pre>
-          <pre style={{ fontSize: "0.8rem", marginTop: "1rem" }}>{this.state.error?.stack}</pre>
-        </div>
+        <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: "2rem", background: "#f7f7f7", color: "#171717", fontFamily: "system-ui, sans-serif" }}>
+          <section role="alert" style={{ width: "min(100%, 32rem)", textAlign: "center" }}>
+            <h1 style={{ margin: "0 0 0.75rem", fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>We couldn’t load this page</h1>
+            <p style={{ margin: "0 0 1.5rem", color: "#555", lineHeight: 1.6 }}>
+              The site may have updated while it was open. Reload the page to get the latest version.
+            </p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              style={{ border: 0, borderRadius: "999px", padding: "0.8rem 1.4rem", background: "#172a45", color: "white", font: "inherit", fontWeight: 600, cursor: "pointer" }}
+          >
+              Reload page
+            </button>
+          </section>
+        </main>
       );
     }
     return this.props.children;
@@ -194,6 +235,7 @@ function App() {
                 className={`min-h-screen ${isLightMode && !isSpl3 ? 'light-theme' : ''}`}
               >
                 <Suspense fallback={<div className="min-h-screen"></div>}>
+                  <ClearChunkRecoveryMarker />
                   <Routes location={displayLocation}>
                     <Route path="/" element={<Home />} />
                     <Route path="/word-of-the-day" element={<WordOfTheDay />} />
@@ -254,7 +296,7 @@ function App() {
               </motion.div>
             )}
           </AnimatePresence>
-          {!loading && !isSpl3 && location.pathname !== "/recap" && location.pathname !== "/alumni" && (
+          {!loading && !isSpl3 && location.pathname !== "/recap" && (
             <button
               type="button"
               role="switch"
