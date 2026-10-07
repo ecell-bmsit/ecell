@@ -48,7 +48,7 @@ const AboutSection = () => {
         }}
       />
       {/* 1. Full-height Scroll-reveal Section */}
-      <section className="flex items-center justify-center px-6 md:px-12 pt-16 pb-6 md:pb-8">
+      <section className="flex items-center justify-center px-6 md:px-12 pt-4 md:pt-16 pb-6 md:pb-8">
         <div className="max-w-6xl text-left" style={{ fontFamily: 'var(--font-body)' }}>
           <ScrollRevealText
             text="At E-CELL, we're a movement dedicated to helping students move forward. From discovering the perfect idea to building thriving startups, we make every step in entrepreneurship a positive one."
