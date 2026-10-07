@@ -95,9 +95,12 @@ export default function Navbar() {
         {/* Desktop & Mobile Container */}
         <div className="relative w-full">
           {/* Main Navbar */}
-          <div className="flex items-center justify-between md:justify-center gap-3 w-full md:w-fit mx-auto">
+          <div className={`flex items-center md:justify-center gap-3 w-full md:w-fit mx-auto ${isOpen ? 'justify-between' : 'justify-end'}`}>
             {/* Logo Button */}
-            <Link to="/" className="flex items-center justify-center w-[46px] h-[46px] rounded-full bg-[#E8E8E8] hover:bg-[#DCDCDC] transition-all duration-300">
+            <Link 
+              to="/" 
+              className={`items-center justify-center w-[46px] h-[46px] rounded-full bg-[#E8E8E8] hover:bg-[#DCDCDC] transition-all duration-300 ${!isOpen ? 'hidden md:flex' : 'flex'}`}
+            >
               <img
                 src={logo}
                 alt="E-CELL Logo"

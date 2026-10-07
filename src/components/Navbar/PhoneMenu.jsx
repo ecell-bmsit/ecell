@@ -76,7 +76,7 @@ const PhoneMenu = ({
           
           {/* Menu Dropdown */}
           <motion.div
-            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F5F5F5]/95 flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
+            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F5F5F5]/45 flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
