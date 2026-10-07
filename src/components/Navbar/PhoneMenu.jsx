@@ -76,12 +76,12 @@ const PhoneMenu = ({
           
           {/* Menu Dropdown */}
           <motion.div
-            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F3F3F3]/50 backdrop-blur-xl flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
+            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F5F5F5]/95 flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{
-              duration: isInstantClose ? 0.01 : 0.5,
+              duration: isInstantClose ? 0.01 : 0.4,
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{ fontFamily: "var(--font-body)", willChange: "transform" }}
@@ -101,9 +101,9 @@ const PhoneMenu = ({
             {displayItems.map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 + index * 0.04, ease: "easeOut" }}
+                transition={{ duration: 0.3, delay: 0.1 + index * 0.03, ease: "easeOut" }}
                 className="flex items-baseline gap-4"
               >
                 <span className="text-[10px] text-[#555] font-light w-4">
