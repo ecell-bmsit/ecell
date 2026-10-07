@@ -81,8 +81,8 @@ const PhoneMenu = ({
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{
-              duration: isInstantClose ? 0.01 : 0.4,
-              ease: [0.22, 1, 0.36, 1],
+              duration: isInstantClose ? 0.01 : 1.2,
+              ease: [0.76, 0, 0.24, 1],
             }}
             style={{ fontFamily: "var(--font-body)", willChange: "transform" }}
           >
@@ -101,9 +101,9 @@ const PhoneMenu = ({
             {displayItems.map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ y: 15, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 + index * 0.03, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.4 + index * 0.08, ease: [0.33, 1, 0.68, 1] }}
                 className="flex items-baseline gap-4"
               >
                 <span className="text-[10px] text-[#555] font-light w-4">
