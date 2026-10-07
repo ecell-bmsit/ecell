@@ -87,37 +87,36 @@ export default function Navbar() {
       <nav
         className={`fixed z-[99999] transition-all duration-500 ease-in-out ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
-        } md:top-6 md:left-1/2 md:-translate-x-1/2 top-6 right-4`}
+        } md:top-6 md:left-1/2 md:-translate-x-1/2 top-6 left-0 right-0 px-4 md:px-0`}
         style={{
           fontFamily: "var(--font-heading)",
         }}
       >
         {/* Desktop & Mobile Container */}
-        <div className="relative">
+        <div className="relative w-full">
           {/* Main Navbar */}
-          <div className="md:bg-black/40 md:backdrop-blur-xl md:border md:border-white/10 md:rounded-full px-4 py-2.5 flex items-center gap-2 w-fit mx-auto bg-transparent border-none">
-            {/* Logo - Desktop Only */}
-            <Link to="/" className="hidden md:flex flex-shrink-0 group">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 p-1.5 ">
-                <img
-                  src={logo}
-                  alt="E-CELL Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+          <div className="flex items-center justify-between md:justify-center gap-3 w-full md:w-fit mx-auto">
+            {/* Logo Button */}
+            <Link to="/" className="flex items-center justify-center w-[46px] h-[46px] rounded-full bg-[#E8E8E8] hover:bg-[#DCDCDC] transition-all duration-300">
+              <img
+                src={logo}
+                alt="E-CELL Logo"
+                className="w-6 h-6 object-contain brightness-0"
+              />
             </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1">
+            {/* Desktop Menu Pill */}
+            <div className="hidden md:flex items-center bg-[#E8E8E8] rounded-full px-1.5 py-1.5 gap-0.5">
               {navItems.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                  className={`px-5 py-1.5 rounded-full text-[14px] tracking-wide transition-all duration-300 whitespace-nowrap ${
                     location.pathname === item.to
-                      ? "bg-gradient-to-r from-slate-600 to-slate-700 text-white"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                      ? "bg-[#D4D4D4] text-black font-semibold shadow-sm"
+                      : "text-[#555555] hover:text-black font-medium hover:bg-[#DCDCDC]/50"
                   }`}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {item.label}
                 </Link>
@@ -127,14 +126,12 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className={`md:hidden hamburger-toggle ${isOpen ? "active" : ""}`}
+              className={`md:hidden hamburger-toggle flex items-center justify-center w-[46px] h-[46px] rounded-[14px] bg-[#E8E8E8] hover:bg-[#DCDCDC] transition-all duration-300 ${isOpen ? "active" : ""}`}
+              style={{ backgroundColor: isOpen ? 'transparent' : '#E8E8E8' }}
               aria-label="Toggle menu"
-              style={{
-                color: isOpen ? "#1a1a1a" : "white",
-              }}
             >
-              <div className="hamburger-line"></div>
-              <div className="hamburger-line"></div>
+              <div className="hamburger-line" style={{ backgroundColor: "#1a1a1a" }}></div>
+              <div className="hamburger-line" style={{ backgroundColor: "#1a1a1a" }}></div>
             </button>
           </div>
         </div>
