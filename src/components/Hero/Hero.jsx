@@ -137,7 +137,7 @@ const ECellHero = () => {
 
 
       <motion.div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 opacity-[0.08] md:opacity-[0.25]"
 
 
         style={{

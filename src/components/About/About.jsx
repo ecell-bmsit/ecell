@@ -66,9 +66,7 @@ const AboutSection = () => {
 
         {/* Left Column: Heading + Video Frame */}
         <div className="md:col-span-4 flex flex-col justify-between pt-2 pb-15">
-          <h2 className="text-sm md:text-base uppercase tracking-[0.3em] font-semibold text-gray-400 mb-12 font-mono">
-            Who We Are
-          </h2>
+
 
           {/* Left Video Frame (Positioned at the bottom of the left column to align with text) */}
           <div className="relative w-full max-w-[450px] mx-auto md:max-w-none md:w-full mt-8 md:mt-auto">
