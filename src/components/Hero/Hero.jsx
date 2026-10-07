@@ -292,7 +292,7 @@ const ECellHero = () => {
           </div>
 
           {/* Description Text - Centered */}
-          <div className={`mt-6 lg:mt-16 max-w-4xl mx-auto text-center transition-all duration-1500 ease-out ${animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          <div className={`mt-6 lg:mt-16 mb-12 sm:mb-0 max-w-4xl mx-auto text-center transition-all duration-1500 ease-out ${animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`} style={{ transitionDelay: '800ms' }}>
             <p className="text-gray-300 text-sm sm:text-base lg:text-xl leading-relaxed px-6 sm:px-4 text-center w-full box-border" style={{ fontFamily: 'var(--font-heading)' }}>
               Empowering the next generation of innovators and entrepreneurs,{' '}

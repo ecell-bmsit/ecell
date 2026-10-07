@@ -76,15 +76,15 @@ const PhoneMenu = ({
           
           {/* Menu Dropdown */}
           <motion.div
-            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F3F3F3]/40 backdrop-blur-xl flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
+            className="fixed top-0 left-0 right-0 z-[99998] bg-[#F3F3F3]/50 backdrop-blur-xl flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{
-              duration: isInstantClose ? 0.01 : 1.2,
+              duration: isInstantClose ? 0.01 : 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
-            style={{ fontFamily: "var(--font-body)" }}
+            style={{ fontFamily: "var(--font-body)", willChange: "transform" }}
           >
           {/* Top Bar Spacer (Logo & X button render on top via Navbar.jsx) */}
           <div className="flex items-center justify-center w-full relative h-[46px]">
@@ -103,7 +103,7 @@ const PhoneMenu = ({
                 key={item.label}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                transition={{ duration: 0.4, delay: 0.1 + index * 0.04, ease: "easeOut" }}
                 className="flex items-baseline gap-4"
               >
                 <span className="text-[10px] text-[#555] font-light w-4">
