@@ -79,15 +79,18 @@ export function IdeaSectionHeader() {
       <LampContainer>
         <motion.h1
           style={{ fontFamily: 'ClashDisplay, sans-serif', wordSpacing: '0.4em' }}
-          className="mt-8 bg-gradient-to-br from-white to-neutral-400 py-4 bg-clip-text text-center text-2xl sm:text-5xl tracking-[0.1em] sm:tracking-[0.15em] text-transparent md:text-8xl opacity-100 translate-y-0 build-idea-text"
+          className="mt-8 px-4 w-full bg-gradient-to-br from-white to-neutral-400 py-4 bg-clip-text text-center text-2xl sm:text-5xl tracking-normal sm:tracking-[0.1em] text-transparent md:text-7xl lg:text-8xl opacity-100 translate-y-0 build-idea-text"
         >
-          BUILD YOUR IDEA
+          <span className="whitespace-nowrap">BUILD YOUR</span>
+          <span className="hidden md:inline"> </span>
+          <br className="md:hidden" />
+          IDEA
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="block text-center text-neutral-400 max-w-xl mt-4 text-base md:text-xl"
+          className="block text-center text-neutral-400 max-w-xl mt-4 text-sm sm:text-base md:text-xl px-4 mx-auto w-full"
         >
           Turn your idea into reality with the right guidance and support.
         </motion.p>
