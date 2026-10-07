@@ -252,7 +252,7 @@ const EcellAlumniPage = () => {
             className="mb-12"
           >
             <h2 
-              className="text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-center leading-[0.9] tracking-tighter text-black mb-10 mt-10"
+              className="text-5xl md:text-7xl lg:text-[90px] font-bold uppercase text-center leading-[0.9] tracking-tight text-black mb-10 mt-10"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Our Alumni Network

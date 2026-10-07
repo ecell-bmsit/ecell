@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const WhatsappIcon = ({ className }) => (
@@ -27,7 +27,7 @@ import ecellLogoDesktop from '../../assets/ecell.png';
 
 const DesktopFooter = () => {
   return (
-    <footer className="w-full bg-black text-white hidden xl:flex flex-col transition-all duration-300" style={{ fontFamily: 'var(--font-body)' }}>
+    <footer className="w-full bg-black text-white hidden md:flex flex-col transition-all duration-300" style={{ fontFamily: 'var(--font-body)' }}>
       {/* Top Section */}
       <div className="flex w-full min-h-[400px] border-b border-[#222]">
 
@@ -42,7 +42,7 @@ const DesktopFooter = () => {
                 alt="E-Cell Logo"
                 className="w-[58px] h-[58px] object-contain brightness-0 invert opacity-90"
               />
-              <div className="flex flex-col justify-center text-left">
+              <div className="flex flex-col justify-center">
                 <h3 className="text-white text-[20px] lg:text-[22px] tracking-[-0.02em] leading-[1.15] uppercase" style={{ fontFamily: 'var(--font-heading)' }}>
                   ENTREPRENEURSHIP CELL
                 </h3>
@@ -345,7 +345,7 @@ const MobileFooter = () => {
         <div className="mx-6 sm:mx-10 lg:mx-16 h-px bg-white/15" />
 
         {/* Main Grid */}
-        <div className="px-6 sm:px-10 lg:px-16 py-14 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+        <div className="px-6 sm:px-10 lg:px-16 py-14 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Left: Brand */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
@@ -420,18 +420,13 @@ const MobileFooter = () => {
 
 // ─── Main Footer ───────────────────────────────────────────────────────────────
 const Footer = () => {
-  const location = useLocation();
-  const isLandingPage = location.pathname === '/';
-
   return (
     <div id="footer">
-      {isLandingPage && (
-        <div className="w-full h-px bg-white/10" />
-      )}
-      <div className="hidden xl:block">
+      <div className="dark-mode-footer-divider" aria-hidden="true" />
+      <div className="hidden md:block">
         <DesktopFooter />
       </div>
-      <div className="block xl:hidden">
+      <div className="block md:hidden">
         <MobileFooter />
       </div>
     </div>

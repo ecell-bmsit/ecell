@@ -26,7 +26,7 @@ const TeamMemberCard = ({ member, large = false }) => {
   const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
 
   return (
-    <div className={`flex flex-col group cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] ${large ? 'w-65' : 'w-full'}`}>
+    <div className={`team-member-card flex flex-col group cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] ${large ? 'w-65' : 'w-full'}`}>
 
       {/* Image box: Flush, borderless, matching 4:5 aspect ratio with red reveal hover */}
       <div className="w-full aspect-[4/5] bg-[#0a0000] overflow-hidden relative mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
@@ -49,7 +49,7 @@ const TeamMemberCard = ({ member, large = false }) => {
       <div className="flex flex-col w-full text-left mt-2">
         {/* Massive 2-line name using Robit font */}
         <h3
-          className="text-[#e2e2e2] text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-wide leading-[1.1] mb-4 group-hover:text-[rgb(215,2,90)] transition-colors duration-300"
+          className="team-member-name text-[#e2e2e2] text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-wide leading-[1.1] mb-4 group-hover:text-[rgb(215,2,90)] transition-colors duration-300"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           <span className="block">{firstName}</span>
@@ -149,7 +149,7 @@ const TeamPage = () => {
                   alt="E-Cell BMSIT Team"
                   loading="eager"
                   fetchPriority="high"
-                  className="w-full h-auto object-contain filter grayscale brightness-[0.86] contrast-[1.08]"
+                  className="team-hero-photo w-full h-auto object-contain filter grayscale brightness-[0.86] contrast-[1.08]"
                   style={{
                     maskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',
@@ -219,9 +219,7 @@ const TeamPage = () => {
         </div>
       </div>
 
-      <div className="border-t border-white/20">
-        <Footer />
-      </div>
+      <Footer />
 
     </div>
   );

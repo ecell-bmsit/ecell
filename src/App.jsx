@@ -109,22 +109,13 @@ function App() {
   const hasSeenPreloader = sessionStorage.getItem("preloaderShown");
   const [loading, setLoading] = useState(!hasSeenPreloader);
   const [showContent, setShowContent] = useState(!!hasSeenPreloader);
-  const [isLightMode, setIsLightMode] = useState(true);
+  const [themePreference, setThemePreference] = useState(() => localStorage.getItem("ecell-theme-preference"));
 
   const isSpl3 = location.pathname === "/events/spl3" || location.pathname === "/spl3";
-
-  useEffect(() => {
-    if (
-      location.pathname === "/gallery" || 
-      location.pathname === "/team" || 
-      location.pathname === "/recap" ||
-      location.pathname === "/alumni"
-    ) {
-      setIsLightMode(false);
-    } else {
-      setIsLightMode(true);
-    }
-  }, [location.pathname]);
+  const darkByDefaultRoutes = ["/gallery", "/team", "/recap", "/alumni"];
+  const isLightMode = themePreference
+    ? themePreference === "light"
+    : !darkByDefaultRoutes.includes(location.pathname);
 
   const handleThemeToggle = (event) => {
     const isKeyboardTrigger = event?.clientX === 0 && event?.clientY === 0;
@@ -136,13 +127,19 @@ function App() {
     document.documentElement.style.setProperty('--theme-toggle-x', `${clickX}px`);
     document.documentElement.style.setProperty('--theme-toggle-y', `${clickY}px`);
 
+    const nextTheme = isLightMode ? "dark" : "light";
+    const applyTheme = () => {
+      localStorage.setItem("ecell-theme-preference", nextTheme);
+      setThemePreference(nextTheme);
+    };
+
     if (typeof document.startViewTransition !== 'function') {
-      setIsLightMode((prev) => !prev);
+      applyTheme();
       return;
     }
 
     document.startViewTransition(() => {
-      setIsLightMode((prev) => !prev);
+      applyTheme();
     });
   };
 
@@ -257,7 +254,7 @@ function App() {
               </motion.div>
             )}
           </AnimatePresence>
-          {!loading && !isSpl3 && location.pathname !== "/team" && location.pathname !== "/recap" && location.pathname !== "/alumni" && (
+          {!loading && !isSpl3 && location.pathname !== "/recap" && location.pathname !== "/alumni" && (
             <button
               type="button"
               role="switch"
