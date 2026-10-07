@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar/Navbar";
 import Preloader from "./components/Preloader/Preloader";
 import { WordProvider } from "./context/WordContext";
@@ -311,6 +312,7 @@ function App() {
           )}
         </div>
         </WordProvider>
+        <Analytics />
       </PreloaderContext.Provider>
     </ErrorBoundary>
   );
