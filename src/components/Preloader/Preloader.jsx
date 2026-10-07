@@ -74,25 +74,6 @@ const Preloader = ({ onComplete }) => {
       animate={{ opacity: step === 4 ? 0 : 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      {/* LEFT TICKER STRIP */}
-      <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-16 md:w-20 bg-[#080808] border-r border-[#1a1a1a] flex items-center justify-center pointer-events-none z-30">
-        <div className="rotate-[-90deg] whitespace-nowrap flex text-[#777777] font-sans text-[9px] sm:text-[11px] md:text-xs font-medium tracking-[0.25em] uppercase">
-          <motion.div className="flex gap-4" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 30 }}>
-            <span className="pr-4 leading-none">{tickerString}</span>
-            <span className="pr-4 leading-none">{tickerString}</span>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* RIGHT TICKER STRIP */}
-      <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-16 md:w-20 bg-[#080808] border-l border-[#1a1a1a] flex items-center justify-center pointer-events-none z-30">
-        <div className="rotate-[90deg] whitespace-nowrap flex text-[#777777] font-sans text-[9px] sm:text-[11px] md:text-xs font-medium tracking-[0.25em] uppercase">
-          <motion.div className="flex gap-4" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 30 }}>
-            <span className="pr-4 leading-none">{tickerString}</span>
-            <span className="pr-4 leading-none">{tickerString}</span>
-          </motion.div>
-        </div>
-      </div>
 
       {/* MAIN CONTENT */}
       <div className="relative z-10 flex items-center justify-center w-full px-10 sm:px-24 h-screen">

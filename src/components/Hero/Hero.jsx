@@ -137,7 +137,7 @@ const ECellHero = () => {
 
 
       <motion.div
-        className="absolute inset-0 opacity-[0.25]"
+        className="absolute inset-0 opacity-[0.08]"
 
 
         style={{
@@ -171,43 +171,43 @@ const ECellHero = () => {
 
 
       {/* Logos Section - responsive positioning */}
-      <nav className="flex justify-between items-center px-3 pt-3">
+      <nav className="flex justify-between items-center px-4 md:px-8 pt-3.5 md:pt-4 relative z-50">
         {/* Left: Logo 1 & Logo 2 - always visible */}
-        <div className="flex gap-6 items-center justify-center">
-          <img src={bmsitLogo} alt="BMSIT Logo" className="h-14 w-14 object-contain mb-4" />
-          <img src={bicepLogo} alt="BICEP Logo" className="h-14 w-14 object-contain" />
+        <div className="flex gap-3 md:gap-6 items-end justify-center">
+          <img src={bmsitLogo} alt="BMSIT Logo" className="h-9 w-9 md:h-14 md:w-14 object-contain md:-translate-y-4" />
+          <img src={bicepLogo} alt="BICEP Logo" className="h-9 w-9 md:h-14 md:w-14 object-contain translate-y-3 md:-translate-y-1" />
 
           {/* E-Cell Logo (mobile only) */}
-          <div className="lg:hidden">
+          <div className="lg:hidden flex items-end">
             <img
               src={ecellOrLogo}
               alt="E-Cell Logo"
-              className="h-14 w-14 object-contain mb-3 dark-mode-logo"
+              className="h-9 w-9 object-contain translate-y-4 dark-mode-logo"
             />
             <img
               src={ecellLightLogo}
               alt="E-Cell Logo"
-              className="h-14 w-14 object-contain scale-[1.3] mt-3 -mr-1 light-mode-logo preserve-color"
+              className="h-9 w-9 object-contain scale-[1.3] translate-y-4 light-mode-logo preserve-color"
             />
           </div>
         </div>
 
         {/* Right: Logo 3 (desktop only) */}
-        <div className="hidden lg:block pr-3">
+        <div className="hidden lg:flex items-end pr-2 md:pr-4">
           <img
             src={ecellLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain mb-3 dark-mode-logo"
+            className="h-14 w-14 object-contain translate-y-2 dark-mode-logo"
           />
           <img
             src={ecellLightLogo}
             alt="E-Cell Logo"
-            className="h-14 w-14 object-contain scale-[1.3] mt-3 -mr-1 light-mode-logo preserve-color"
+            className="h-14 w-14 object-contain scale-[1.3] translate-y-2 light-mode-logo preserve-color"
           />
         </div>
       </nav>
 
-      <div className="flex flex-col justify-center min-h-screen relative px-4 pt-20 pb-24 lg:pb-8 z-10">
+      <div className="flex flex-col justify-center min-h-screen relative px-4 pt-4 pb-24 lg:pb-20 z-10">
 
         {/* Enhanced Initial Animation - "WE ARE ENTREPRENEURSHIP CELL" */}
         <motion.div
@@ -281,12 +281,12 @@ const ECellHero = () => {
           </div>
 
           {/* Mobile Layout - Centered */}
-          <div className="lg:hidden flex flex-col items-center justify-center text-center space-y-8">
+          <div className="lg:hidden flex flex-col items-center justify-center text-center space-y-4">
 
             {/* Mobile Text - Centered */}
             <div className={`transform transition-all duration-2000 ease-out ${animationStage >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
               }`}>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
                 WE ARE<br />
                 <span className="italic font-light">E-CELL</span>
               </h1>
@@ -295,7 +295,7 @@ const ECellHero = () => {
             {/* Mobile Cards - Centered */}
             <div className={`relative flex-shrink-0 transform transition-all duration-1500 ease-out ${animationStage >= 2 ? 'scale-100 opacity-100 rotate-0' : 'scale-75 opacity-0 rotate-12'
               }`} style={{ transitionDelay: '400ms' }}>
-              <div className="relative w-52 h-68 sm:w-56 sm:h-72 mx-auto">
+              <div className="relative w-44 h-56 sm:w-52 sm:h-64 mx-auto">
                 {cardConfig.map((_, index) => renderCard(index, true))}
               </div>
             </div>
@@ -306,9 +306,9 @@ const ECellHero = () => {
           </div>
 
           {/* Description Text - Centered */}
-          <div className={`mt-12 lg:mt-16 max-w-4xl mx-auto text-center transition-all duration-1500 ease-out ${animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          <div className={`mt-6 lg:mt-16 max-w-4xl mx-auto text-center transition-all duration-1500 ease-out ${animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`} style={{ transitionDelay: '800ms' }}>
-            <p className="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed px-8 sm:px-4 text-center w-full box-border" style={{ fontFamily: 'Sora, sans-serif' }}>
+            <p className="text-gray-300 text-sm sm:text-base lg:text-xl leading-relaxed px-6 sm:px-4 text-center w-full box-border" style={{ fontFamily: 'Sora, sans-serif' }}>
               Empowering the next generation of innovators and entrepreneurs,{' '}
               <br className="hidden sm:inline" />
               fostering creativity, leadership, and entrepreneurial mindset{' '}
