@@ -43,8 +43,8 @@ const AlumniCard = ({ member, index }) => {
       <div
         className="w-full relative transition-all duration-500 ease-out rounded-[28px]"
         style={{
-          transform: isHovered ? "translate(8px, -8px)" : "translate(0px, 0px)",
-          boxShadow: isHovered ? `-16px 16px 0px #dd5500` : "0px 0px 0px transparent",
+          transform: isHovered ? "translateY(-8px)" : "translateY(0px)",
+          boxShadow: isHovered ? `0px 15px 35px -10px #f9731580` : "0px 0px 0px transparent",
         }}
       >
         {/* Image Container */}
