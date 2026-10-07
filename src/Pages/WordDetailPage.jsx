@@ -98,7 +98,7 @@ export default function WordDetailPage() {
                                 </span>
                                 <h2
                                     className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6"
-                                    style={{ fontFamily: "'Nhass', sans-serif" }}
+                                    style={{ fontFamily: "var(--font-heading)" }}
                                 >
                                     {word.title}
                                 </h2>

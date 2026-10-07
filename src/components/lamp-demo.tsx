@@ -78,7 +78,7 @@ export function IdeaSectionHeader() {
     <div className="w-full bg-black relative z-10 text-white font-sans idea-section-wrapper">
       <LampContainer>
         <motion.h1
-          style={{ fontFamily: 'ClashDisplay, sans-serif', wordSpacing: '0.4em' }}
+          style={{ fontFamily: 'var(--font-heading)', wordSpacing: '0.4em' }}
           className="mt-8 px-4 w-full bg-gradient-to-br from-white to-neutral-400 py-4 bg-clip-text text-center text-2xl sm:text-5xl tracking-normal sm:tracking-[0.1em] text-transparent md:text-7xl lg:text-8xl opacity-100 translate-y-0 build-idea-text"
         >
           <span className="whitespace-nowrap">BUILD YOUR</span>
@@ -105,17 +105,17 @@ export function IdeaSectionHeader() {
               <div className="relative">
                 <Quote className="absolute -top-6 -left-6 w-16 h-16 text-orange-400 idea-quote-icon" />
                 <blockquote
-                  style={{ fontFamily: 'SpaceGrotesk, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-heading)' }}
                   className="text-3xl leading-relaxed mb-8 text-white font-bold"
                 >
                   People who are crazy enough to think they can change the world are the ones who do.
                   <footer className="text-lg text-neutral-400 mt-4 font-normal">— Steve Jobs</footer>
                 </blockquote>
                 <hr className="border-neutral-800 mb-6" />
-                <div style={{ fontFamily: 'ClashDisplay, sans-serif' }} className="space-y-5 text-neutral-300 text-lg leading-relaxed">
+                <div style={{ fontFamily: 'var(--font-heading)' }} className="space-y-5 text-neutral-300 text-lg leading-relaxed">
                   <p>Got an idea but don't know where to start?</p>
                   <div className="text-2xl text-white font-medium pt-6">
-                    We help you build, refine, and launch it. Your idea stays yours. 🚀
+                    We help you build, refine, and launch it. Your idea stays yours.
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export function IdeaSectionHeader() {
             {/* Mobile-only header */}
             <div className="lg:hidden text-center mb-8 px-2">
               <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Got an idea?</h2>
-              <p className="text-neutral-400 text-sm">We help you build, refine, and launch it. 🚀</p>
+              <p className="text-neutral-400 text-sm">We help you build, refine, and launch it.</p>
             </div>
 
             {/* Desktop: original black box wrapper | Mobile: no box */}

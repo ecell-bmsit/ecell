@@ -1,11 +1,10 @@
 /* DummyLeaderboard.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  Page shell                                                    */
 /* ─────────────────────────────────────────────────────────────── */
 .dummy-leaderboard-page {
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: var(--font-body);
   background-color: #f0f4ff;
   background-image: 
     linear-gradient(rgba(124, 133, 224, 0.15) 1px, transparent 1px),
@@ -186,7 +185,7 @@
   color: #ffffff;
   opacity: 0.85;
   line-height: 1;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-body);
   user-select: none;
   position: relative;
   z-index: 2;

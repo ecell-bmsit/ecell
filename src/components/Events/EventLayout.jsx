@@ -176,7 +176,7 @@ const EventLayout = ({
   return (
     <div
       className={`min-h-screen bg-gradient-to-br ${backgroundGradient} text-white relative overflow-hidden`}
-      style={{ fontFamily: 'Sora, sans-serif' }}
+      style={{ fontFamily: 'var(--font-heading)' }}
     >
       {/* Background */}
       <div
@@ -227,7 +227,7 @@ const EventLayout = ({
             <motion.h1
               variants={itemVariants}
               className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent mb-6 leading-tight tracking-tight`}
-              style={{ fontFamily: 'Georgia, serif' }}
+              style={{ fontFamily: 'var(--font-subheading)' }}
             >
               {title}
             </motion.h1>
@@ -291,7 +291,7 @@ const EventLayout = ({
                 <div className={`h-0.5 w-16 rounded-full ${theme.bg}`} />
                 <h2
                   className="text-2xl sm:text-3xl font-bold text-white"
-                  style={{ fontFamily: 'Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-subheading)' }}
                 >
                   Event Highlights
                 </h2>
@@ -342,7 +342,7 @@ const EventLayout = ({
                 <div className={`h-0.5 w-16 rounded-full ${theme.bg}`} />
                 <h2
                   className="text-2xl sm:text-3xl font-bold text-white"
-                  style={{ fontFamily: 'Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-subheading)' }}
                 >
                   Captured Moments
                 </h2>

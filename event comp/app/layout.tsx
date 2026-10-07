@@ -1,5 +1,5 @@
 import "./globals.css"
-import { ppEditorialNewUltralightItalic, inter } from "./fonts"
+import { sora, georgiaPro, urbanist } from "./fonts"
 import type React from "react"
 
 export const metadata = {
@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${ppEditorialNewUltralightItalic.variable} ${inter.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${sora.variable} ${georgiaPro.variable} ${urbanist.variable}`}>
+      <body className={urbanist.className}>{children}</body>
     </html>
   )
 }

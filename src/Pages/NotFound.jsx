@@ -77,7 +77,7 @@ const NotFound = () => {
         `}
       </style>
       <div className="not-found-container preserve-color absolute inset-0 z-[100] min-h-screen w-full flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center" style={{ fontFamily: "'SeasonSerif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif" }}>
+        <div className="flex flex-col items-center" style={{ fontFamily: "var(--font-subheading)" }}>
           <h1 className="text-3xl md:text-[40px] mb-4 font-normal tracking-wide">404</h1>
           
           <div className="flex items-center text-5xl md:text-[80px] font-normal mb-16 tracking-tight leading-none mt-2">
@@ -89,7 +89,7 @@ const NotFound = () => {
           <Link
             to="/"
             className="group flex items-center gap-3 text-xl md:text-[22px]"
-            style={{ fontFamily: "'SeasonSerif', ui-serif, system-ui, sans-serif" }}
+            style={{ fontFamily: "var(--font-subheading)" }}
           >
             <span className="relative pb-[1px] hover:text-current">
               Back to home

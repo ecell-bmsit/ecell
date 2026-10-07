@@ -5,7 +5,7 @@ import teamData from './teamData.json';
 import Footer from '../components/Footer/Footer';
 
 // Group photo for the hero section
-import teamImage from './assets/team/1team.webp';
+const teamImage = '/team-image-main.png';
 
 // Dynamically import all team member images via Vite glob
 const imageModules = import.meta.glob('./assets/team/*.{jpg,jpeg,png,JPG,HEIF}', {
@@ -26,7 +26,7 @@ const TeamMemberCard = ({ member, large = false }) => {
   const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
 
   return (
-    <div className={`flex flex-col group cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] ${large ? 'w-65' : 'w-full'}`}>
+    <div className={`team-member-card flex flex-col group cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px] ${large ? 'w-65' : 'w-full'}`}>
 
       {/* Image box: Flush, borderless, matching 4:5 aspect ratio with red reveal hover */}
       <div className="w-full aspect-[4/5] bg-[#0a0000] overflow-hidden relative mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
@@ -49,8 +49,8 @@ const TeamMemberCard = ({ member, large = false }) => {
       <div className="flex flex-col w-full text-left mt-2">
         {/* Massive 2-line name using Robit font */}
         <h3
-          className="text-[#e2e2e2] text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-wide leading-[1.1] mb-4 group-hover:text-[rgb(215,2,90)] transition-colors duration-300"
-          style={{ fontFamily: "'Robit', sans-serif" }}
+          className="team-member-name text-[#e2e2e2] text-xl sm:text-2xl lg:text-3xl xl:text-4xl tracking-wide leading-[1.1] mb-4 group-hover:text-[rgb(215,2,90)] transition-colors duration-300"
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           <span className="block">{firstName}</span>
           {lastName && <span className="block">{lastName}</span>}
@@ -59,7 +59,7 @@ const TeamMemberCard = ({ member, large = false }) => {
         {/* Tiny uppercase monospace-style position far down */}
         <p
           className="text-gray-400 font-medium text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.2em] leading-relaxed"
-          style={{ fontFamily: "'SuisseIntl', monospace, sans-serif" }}
+          style={{ fontFamily: "var(--font-body)" }}
         >
           {member.position}
         </p>
@@ -80,7 +80,7 @@ const TeamSectionGroup = ({ title, members, isLast, showDivider = true, centered
 
       <h2
         className={`text-white text-3xl md:text-6xl lg:text-7xl font-bold uppercase mt-16 md:mt-24 mb-16 md:mb-28 tracking-tighter ${centered ? 'text-center' : ''}`}
-        style={{ fontFamily: "'Nhass', sans-serif" }}
+        style={{ fontFamily: "var(--font-heading)" }}
       >
         {title}
       </h2>
@@ -117,14 +117,6 @@ const TeamPage = () => {
       {/* ════════════ HERO SECTION (original light design) ════════════ */}
       <div className="min-h-screen bg-[#f4f4f4] preserve-color relative overflow-hidden pb-8 md:pb-20">
 
-        {/* Grain overlay */}
-        <div
-          className="pointer-events-none fixed inset-0 opacity-[0.035] mix-blend-multiply z-50"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col">
 
           {/* Main hero block */}
@@ -140,7 +132,7 @@ const TeamPage = () => {
               >
                 <span
                   className="text-[18.5vw] sm:text-[15vw] md:text-[140px] lg:text-[180px] xl:text-[220px] font-black uppercase text-[#ff3b1f] leading-[0.8] whitespace-nowrap"
-                  style={{ fontFamily: "'Inter', 'Nhass', system-ui, sans-serif", fontWeight: 900 }}
+                  style={{ fontFamily: "var(--font-heading)", fontWeight: 900 }}
                 >
                   THE TEAM
                 </span>
@@ -150,13 +142,18 @@ const TeamPage = () => {
               <motion.div
                 initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute z-10 w-[115%] sm:w-[98%] md:w-[95%] lg:w-[85%] max-w-[1400px] left-1/2 transform -translate-x-1/2 pointer-events-none mt-[8vw] sm:mt-[6vw] md:mt-[60px] lg:mt-[80px]"
+                className="absolute z-10 w-[130%] sm:w-[115%] md:w-[105%] max-w-[1400px] left-[57%] top-[-45px] sm:top-[-70px] md:top-[-90px] lg:top-[-120px] xl:top-[-145px] transform -translate-x-1/2 pointer-events-none"
               >
                 <img
                   src={teamImage}
                   alt="E-Cell BMSIT Team"
-                  loading="lazy"
-                  className="w-full h-auto object-contain filter grayscale contrast-125 drop-shadow-2xl"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="team-hero-photo w-full h-auto object-contain filter grayscale brightness-[0.86] contrast-[1.08]"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',
+                  }}
                 />
               </motion.div>
             </div>
@@ -169,7 +166,7 @@ const TeamPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="md:hidden flex flex-col items-start text-left px-4 mt-[35vw] sm:mt-[30vw] mb-0 relative z-10"
-            style={{ fontFamily: "'DIN Pro', sans-serif" }}
+            style={{ fontFamily: "var(--font-body)" }}
           >
             <p className="text-xl mb-2 font-medium">
               <span className="text-[#ff3b1f]">Together,</span> <span className="text-gray-700">we design better</span>
@@ -177,7 +174,7 @@ const TeamPage = () => {
 
             <h2
               className="text-4xl font-bold text-black mb-10 tracking-tight uppercase"
-              style={{ fontFamily: "'DIN Pro', sans-serif", fontWeight: 700 }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
             >
               MEET OUR TEAM
             </h2>
@@ -192,14 +189,6 @@ const TeamPage = () => {
 
       {/* ════════════ TEAM GRID SECTION (dark, interactive) ════════════ */}
       <div className="bg-black relative overflow-hidden pb-32">
-
-        {/* Grain overlay for dark section */}
-        <div
-          className="pointer-events-none fixed inset-0 opacity-[0.06] mix-blend-screen z-50"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-20 lg:px-40 relative z-10 w-full flex flex-col items-start pt-6 md:pt-18">
 

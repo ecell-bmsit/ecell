@@ -176,21 +176,21 @@ const ShareFailureStory = () => {
   const statusInfo = submitStatus ? getStatusMessage() : null;
 
   return (
-    <div className="min-h-screen bg-white" id='failurestory' style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="min-h-screen bg-white" id='failurestory' style={{ fontFamily: 'var(--font-subheading)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
         {/* Header Section */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-6 py-3 border-2" style={{ borderColor: '#FD7722', backgroundColor: '#FFF5F0' }}>
             <Quote className="w-5 h-5 mr-2" style={{ color: '#FD7722' }} />
-            <span style={{ color: '#FD7722', fontFamily: 'Sora, sans-serif', fontWeight: '600' }}>Business Wisdom</span>
+            <span style={{ color: '#FD7722', fontFamily: 'var(--font-heading)', fontWeight: '600' }}>Business Wisdom</span>
           </div>
           
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mt-8 mb-6 leading-tight">
            <span style={{ color: '#000000' }}>Share Your</span>  <span style={{ color: '#FD7722' }}>Failure</span> <span style={{ color: '#000000' }}>Story</span> 
           </h1>
           
-          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'Sora, sans-serif' }}>
+          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-heading)' }}>
             Transform your setbacks into comebacks. Your story could be the inspiration someone needs to persevere.
           </p>
         </div>
@@ -206,10 +206,10 @@ const ShareFailureStory = () => {
                   {quote.text}
                 </blockquote>
                 <div className="space-y-3">
-                  <cite className="text-2xl md:text-3xl font-bold block" style={{ color: '#FD7722', fontFamily: 'Sora, sans-serif' }}>
+                  <cite className="text-2xl md:text-3xl font-bold block" style={{ color: '#FD7722', fontFamily: 'var(--font-heading)' }}>
                     {quote.author}
                   </cite>
-                  <div className="text-lg text-gray-600 font-semibold" style={{ fontFamily: 'Sora, sans-serif' }}>
+                  <div className="text-lg text-gray-600 font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
                     {quote.title}
                   </div>
                 </div>
@@ -227,7 +227,7 @@ const ShareFailureStory = () => {
                   
                   {/* Name Input */}
                   <div className="space-y-3">
-                    <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'Sora, sans-serif' }}>
+                    <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                       Full Name *
                     </label>
                     <input
@@ -239,11 +239,11 @@ const ShareFailureStory = () => {
                         errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-orange-500'
                       }`}
                       placeholder="Enter your full name"
-                      style={{ fontFamily: 'Sora, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-heading)' }}
                       disabled={isSubmitting}
                     />
                     {errors.name && (
-                      <p className="text-red-600 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
+                      <p className="text-red-600 text-sm" style={{ fontFamily: 'var(--font-heading)' }}>
                         {errors.name}
                       </p>
                     )}
@@ -251,7 +251,7 @@ const ShareFailureStory = () => {
 
                   {/* Email Input */}
                   <div className="space-y-3">
-                    <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'Sora, sans-serif' }}>
+                    <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                       Email Address *
                     </label>
                     <input
@@ -263,11 +263,11 @@ const ShareFailureStory = () => {
                         errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-orange-500'
                       }`}
                       placeholder="your@email.com"
-                      style={{ fontFamily: 'Sora, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-heading)' }}
                       disabled={isSubmitting}
                     />
                     {errors.email && (
-                      <p className="text-red-600 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
+                      <p className="text-red-600 text-sm" style={{ fontFamily: 'var(--font-heading)' }}>
                         {errors.email}
                       </p>
                     )}
@@ -276,7 +276,7 @@ const ShareFailureStory = () => {
 
                 {/* Story Textarea */}
                 <div className="space-y-3">
-                  <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'Sora, sans-serif' }}>
+                  <label className="block text-lg font-bold text-gray-800 uppercase tracking-wider" style={{ fontFamily: 'var(--font-heading)' }}>
                     Your Failure Story *
                   </label>
                   <div className="relative">
@@ -289,12 +289,12 @@ const ShareFailureStory = () => {
                         errors.story ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-orange-500'
                       }`}
                       placeholder="Share your entrepreneurial journey... What challenge did you face? What lessons did you learn? How did this experience shape your business approach? (minimum 50 characters)"
-                      style={{ fontFamily: 'Georgia, serif' }}
+                      style={{ fontFamily: 'var(--font-subheading)' }}
                       disabled={isSubmitting}
                     />
                     <div className={`absolute bottom-4 right-6 text-sm ${
                       formData.story.length > 5000 ? 'text-red-500' : 'text-gray-500'
-                    }`} style={{ fontFamily: 'Sora, sans-serif' }}>
+                    }`} style={{ fontFamily: 'var(--font-heading)' }}>
                       {formData.story.length} / 5000 characters
                       {formData.story.length < 50 && formData.story.length > 0 && (
                         <span className="text-orange-500 ml-2">
@@ -304,7 +304,7 @@ const ShareFailureStory = () => {
                     </div>
                   </div>
                   {errors.story && (
-                    <p className="text-red-600 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
+                    <p className="text-red-600 text-sm" style={{ fontFamily: 'var(--font-heading)' }}>
                       {errors.story}
                     </p>
                   )}
@@ -319,7 +319,7 @@ const ShareFailureStory = () => {
                     backgroundColor: isSubmitting ? '#9CA3AF' : '#FD7722',
                     borderColor: isSubmitting ? '#9CA3AF' : '#FD7722',
                     color: 'white',
-                    fontFamily: 'Sora, sans-serif'
+                    fontFamily: 'var(--font-heading)'
                   }}
                 >
                   {isSubmitting ? (
@@ -347,11 +347,11 @@ const ShareFailureStory = () => {
                     }`}>
                       <statusInfo.icon className="w-6 h-6 mr-3 flex-shrink-0 mt-0.5" />
                       <div>
-                        <span style={{ fontFamily: 'Sora, sans-serif', fontSize: '16px' }}>
+                        <span style={{ fontFamily: 'var(--font-heading)', fontSize: '16px' }}>
                           {statusInfo.message}
                         </span>
                         {statusInfo.extra && (
-                          <p className="mt-2 text-sm" style={{ fontFamily: 'Sora, sans-serif' }}>
+                          <p className="mt-2 text-sm" style={{ fontFamily: 'var(--font-heading)' }}>
                             {statusInfo.extra}
                           </p>
                         )}
@@ -361,7 +361,7 @@ const ShareFailureStory = () => {
                 )}
 
                 {/* Info */}
-                <div className="text-sm text-gray-600 text-center" style={{ fontFamily: 'Sora, sans-serif' }}>
+                <div className="text-sm text-gray-600 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
                   <p>⏱️ Maximum 5 submissions per hour to prevent spam</p>
                 </div>
 

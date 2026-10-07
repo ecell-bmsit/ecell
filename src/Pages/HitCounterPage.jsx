@@ -30,7 +30,7 @@ const HitCounterPage = () => {
         }
         .hit-digit {
           font-variant-numeric: tabular-nums;
-          font-family: 'Space Grotesk', sans-serif;
+          font-family: var(--font-heading);
         }
       `}</style>
       

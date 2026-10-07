@@ -201,7 +201,7 @@ export default function InfiniteMasonryGallery({ images }) {
       <div style={{
         position: 'fixed', inset: 0, display: 'flex',
         alignItems: 'center', justifyContent: 'center',
-        color: 'white', fontFamily: 'Sora, sans-serif', fontSize: '1rem',
+        color: 'white', fontFamily: 'var(--font-heading)', fontSize: '1rem',
         letterSpacing: '0.12em', background: 'transparent',
       }}>
         Loading Gallery...

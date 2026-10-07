@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const WhatsappIcon = ({ className }) => (
@@ -27,7 +27,7 @@ import ecellLogoDesktop from '../../assets/ecell.png';
 
 const DesktopFooter = () => {
   return (
-    <footer className="w-full bg-black text-white hidden md:flex flex-col transition-all duration-300" style={{ fontFamily: 'Switzer, sans-serif' }}>
+    <footer className="w-full bg-black text-white hidden md:flex flex-col transition-all duration-300" style={{ fontFamily: 'var(--font-body)' }}>
       {/* Top Section */}
       <div className="flex w-full min-h-[400px] border-b border-[#222]">
 
@@ -43,17 +43,14 @@ const DesktopFooter = () => {
                 className="w-[58px] h-[58px] object-contain brightness-0 invert opacity-90"
               />
               <div className="flex flex-col justify-center">
-                <h3 className="text-white text-[20px] lg:text-[22px] tracking-[-0.02em] leading-[1.15] uppercase">
+                <h3 className="text-white text-[20px] lg:text-[22px] tracking-[-0.02em] leading-[1.15] uppercase" style={{ fontFamily: 'var(--font-heading)' }}>
                   ENTREPRENEURSHIP CELL
                 </h3>
-                <p className="text-white/50 text-[14px] tracking-[0.2em] font-medium uppercase mt-1">
+                <p className="text-white/50 text-[14px] tracking-[0.2em] font-medium uppercase mt-1" style={{ fontFamily: 'var(--font-heading)' }}>
                   BMSIT&M
                 </p>
               </div>
             </div>
-            <p className="text-[#888] text-[16.5px] leading-[1.7] max-w-[350px]">
-              Empowering the next generation of entrepreneurs through innovation, mentorship, and collaboration.
-            </p>
           </div>
 
           {/* Bottom: address + email + icons */}
@@ -98,25 +95,15 @@ const DesktopFooter = () => {
         </div>
 
         {/* ── Right Column ── */}
-        <div className="w-[35%] flex flex-col justify-between" style={{ padding: '40px 48px 32px 48px' }}>
-          {/* Top: CTA / Vision */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center -mt-8">
-            <h2
-              className="text-[44px] lg:text-[54px] xl:text-[64px] font-black text-white/95 tracking-tighter leading-[0.95] mb-6"
-              style={{ fontFamily: 'Sora, sans-serif' }}
-            >
-              IDEATE.
-              <br />
-              <span className="text-white/60">INNOVATE. INSPIRE.</span>
-            </h2>
-
-          </div>
-
-          {/* Bottom: copyright row */}
-          <div className="flex items-center justify-between">
-            <span className="text-[#555] text-[10.5px] uppercase tracking-[0.12em]">E-CELL BMSIT&M © 2026</span>
-
-          </div>
+        <div className="w-[35%] flex items-center justify-center text-center" style={{ padding: '40px 48px 32px 48px' }}>
+          <h2
+            className="text-[44px] lg:text-[54px] xl:text-[64px] font-black text-white/95 tracking-tighter leading-[0.95]"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            IDEATE.
+            <br />
+            <span className="text-white/60">INNOVATE. INSPIRE.</span>
+          </h2>
         </div>
       </div>
     </footer>
@@ -337,7 +324,7 @@ const MobileFooter = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-black" style={{ fontFamily: 'Sora, sans-serif' }}>
+    <footer className="relative overflow-hidden bg-black" style={{ fontFamily: 'var(--font-heading)' }}>
       {/* Animated Background */}
       <div className="absolute inset-0">
         <SpringWaveCanvas />
@@ -347,7 +334,7 @@ const MobileFooter = () => {
       <div className="relative z-10">
         {/* Big Statement */}
         <div className="px-6 sm:px-10 lg:px-16 pt-20 pb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white/95 tracking-tighter leading-[0.95] max-w-4xl">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white/95 tracking-tighter leading-[0.95] max-w-4xl mx-auto text-center">
             IDEATE.
             <br />
             <span className="text-white/60">INNOVATE. INSPIRE.</span>
@@ -368,9 +355,6 @@ const MobileFooter = () => {
                 <p className="text-white/50 text-[11px] font-semibold tracking-[0.2em] uppercase">BMSIT&M</p>
               </div>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed max-w-xs text-left">
-              Empowering the next generation of entrepreneurs through innovation, mentorship, and collaboration.
-            </p>
           </div>
 
           {/* Center: Navigation */}
@@ -424,10 +408,7 @@ const MobileFooter = () => {
 
         {/* Bottom Bar */}
         <div className="mx-6 sm:mx-10 lg:mx-16 h-px bg-white/10" />
-        <div className="px-6 sm:px-10 lg:px-16 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-white/40 text-xs font-medium">
-            © 2026 E-Cell BMSIT&M · Ideate · Innovate · Inspire
-          </p>
+        <div className="px-6 sm:px-10 lg:px-16 py-6 flex flex-col sm:flex-row justify-center items-center gap-3">
           <p className="text-white/30 text-xs">
             Built with passion in ECELL BMSIT&M
           </p>
@@ -439,14 +420,9 @@ const MobileFooter = () => {
 
 // ─── Main Footer ───────────────────────────────────────────────────────────────
 const Footer = () => {
-  const location = useLocation();
-  const isLandingPage = location.pathname === '/';
-
   return (
     <div id="footer">
-      {isLandingPage && (
-        <div className="w-full h-px bg-white/10" />
-      )}
+      <div className="dark-mode-footer-divider" aria-hidden="true" />
       <div className="hidden md:block">
         <DesktopFooter />
       </div>

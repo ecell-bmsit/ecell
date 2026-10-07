@@ -41,7 +41,7 @@ export default function HigherLowerAdmin() {
       <div className="max-w-2xl mx-auto border-4 border-[#1a1c1c] p-8 shadow-[8px_8px_0px_#1a1c1c] bg-white">
         <h1
           className="text-3xl font-black uppercase mb-6"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           HigherLower Admin Control
         </h1>

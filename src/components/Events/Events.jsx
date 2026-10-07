@@ -104,7 +104,7 @@ const ECellEventsScroll = () => {
     <>
       <div
         className="preserve-color min-h-screen w-full pb-20 pt-28 md:pt-36 px-5 md:px-12 xl:px-20 transition-colors duration-300"
-        style={{ fontFamily: "'Inter', sans-serif" }}
+        style={{ fontFamily: "var(--font-body)" }}
         id="events"
       >
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
@@ -124,7 +124,7 @@ const ECellEventsScroll = () => {
           </h1>
           <p 
             className="event-subtext text-[15px] md:text-[17px] leading-[1.6] max-w-[420px] font-normal mt-2 text-justify"
-            style={{ fontFamily: "'Avalon', sans-serif" }}
+            style={{ fontFamily: "var(--font-body)" }}
           >
             From startup mixers and founder workshops to pitch days and hackathons. Whether you're looking to build, network, or just explore the world of entrepreneurship, there's something here for you.
           </p>
@@ -169,7 +169,7 @@ const ECellEventsScroll = () => {
                   {/* Image Area */}
                   <div className="event-image-bg w-full h-[240px] md:h-[280px] relative overflow-hidden">
                     <div className="absolute top-4 right-4 z-10 flex gap-2">
-                      <span className="event-badge px-[8px] md:px-[10px] py-[4px] text-[9px] md:text-[10px] font-bold tracking-[0.1em] uppercase rounded-[2px] font-mono">
+                      <span className="event-badge px-[8px] md:px-[10px] py-[4px] text-[11px] md:text-[12px] font-bold tracking-[0.1em] uppercase rounded-[2px]" style={{ fontFamily: "var(--font-heading)" }}>
                         {event.dateRange}
                       </span>
                     </div>
@@ -183,10 +183,10 @@ const ECellEventsScroll = () => {
                   {/* Content Area */}
                   <div className="event-content-bg relative z-20 -mt-5 rounded-t-[20px] p-6 md:p-8 flex-1 flex flex-col justify-between text-left">
                     <div>
-                      <h3 className="event-primary-text font-mono text-[22px] md:text-[24px] font-bold leading-tight mb-3 tracking-tight">
+                      <h3 className="event-primary-text text-[24px] md:text-[26px] font-bold leading-tight mb-3 tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
                         {event.displayName}
                       </h3>
-                      <p className="event-subtext font-mono text-[14px] line-clamp-3 leading-[1.6]">
+                      <p className="event-subtext text-[16px] line-clamp-3 leading-[1.6]" style={{ fontFamily: "var(--font-body)" }}>
                         {event.description}
                       </p>
                     </div>
@@ -195,7 +195,7 @@ const ECellEventsScroll = () => {
                   {/* Footer Bar */}
                   <div className="event-card-border border-t flex items-stretch justify-between transition-colors">
                     <div className="flex items-center">
-                      <span className="event-primary-text text-[11px] md:text-[12px] font-bold tracking-[0.2em] uppercase px-6 md:px-8 font-mono">
+                      <span className="event-primary-text text-[13px] md:text-[14px] font-bold tracking-[0.2em] uppercase px-6 md:px-8" style={{ fontFamily: "var(--font-heading)" }}>
                         VIEW EVENT
                       </span>
                     </div>

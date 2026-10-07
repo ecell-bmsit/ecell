@@ -1,16 +1,18 @@
-@font-face {
-  font-family: 'Switzer';
-  src: url('/fonts/Switzer-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
 .nebula-footer {
   /* Used to have a blue gradient/background, now we rely on the Tailwind classes in JSX */
   position: relative;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-mode-footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.light-theme #footer .dark-mode-footer-divider {
+  display: none;
 }
 
 /* ─── Desktop Footer: Kill global a:hover blue from index.css ──────────────── */
@@ -303,7 +305,7 @@ footer a:focus {
 
 /* Specific floating text */
 .floating-text-btn {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -345,3 +347,4 @@ footer a:focus {
   filter: drop-shadow(0 0 4px rgba(253, 119, 34, 0.3));
   /* Slight orange tinge */
 }
+

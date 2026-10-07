@@ -18,7 +18,6 @@ export default function HigherLowerLeaderboard() {
   return (
     <div className="min-h-screen bg-[#f9f9f9] text-[#1a1c1c] pt-24 px-4 pb-16 lb-grid-bg">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
         .lb-grid-bg {
           background-image: radial-gradient(#1a1c1c 1px, transparent 1px);
           background-size: 28px 28px;
@@ -33,7 +32,7 @@ export default function HigherLowerLeaderboard() {
         <div className="flex flex-wrap gap-3 justify-between items-center mb-8">
           <h1
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-heading)",
               fontWeight: 900,
               textTransform: "uppercase",
               fontStyle: "italic",
@@ -53,7 +52,7 @@ export default function HigherLowerLeaderboard() {
                 color: "#1a1c1c",
                 border: "4px solid #1a1c1c",
                 boxShadow: "6px 6px 0px #bb0058",
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 textTransform: "uppercase",
                 textDecoration: "none",
@@ -73,7 +72,7 @@ export default function HigherLowerLeaderboard() {
                 style={{
                   border: "3px solid #1a1c1c",
                   backgroundColor: index % 2 === 0 ? "#f9f9f9" : "#eef3ff",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 800,
                   textTransform: "uppercase",
                 }}

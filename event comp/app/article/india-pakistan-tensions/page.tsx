@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { ppEditorialNewUltralightItalic, inter } from "../../fonts"
+import { sora, georgiaPro, urbanist } from "../../fonts"
 import { ArrowLeft, Bookmark, Clock, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import WeatherWidget from "@/components/WeatherWidget"
@@ -108,7 +108,7 @@ export default function IndiaPakistanTensionsArticle() {
     <>
       {/* SEO Metadata */}
 
-      <div className={`min-h-screen bg-[#141414] ${ppEditorialNewUltralightItalic.variable} ${inter.variable}`}>
+      <div className={`min-h-screen bg-[#141414] ${georgiaPro.variable} ${urbanist.variable}`}>
         <div className="container mx-auto px-4 py-4 md:py-8">
           {/* Breaking News Banner */}
           <BreakingNewsBar />
@@ -145,7 +145,7 @@ export default function IndiaPakistanTensionsArticle() {
                 </div>
 
                 <h1
-                  className={`${ppEditorialNewUltralightItalic.className} text-3xl md:text-5xl lg:text-6xl font-light italic text-white/90 tracking-tighter leading-[1.2] mb-6`}
+                  className={`${sora.className} text-3xl md:text-5xl lg:text-6xl font-light italic text-white/90 tracking-tighter leading-[1.2] mb-6`}
                 >
                   Escalating Tensions: India Accuses Pakistan of Missile Attack and Launches Retaliation
                 </h1>
@@ -195,7 +195,7 @@ export default function IndiaPakistanTensionsArticle() {
 
               {/* Article Content */}
               <div
-                className={`${inter.className} text-white/80 text-base md:text-lg leading-relaxed space-y-6 mb-12 md:mb-16`}
+                className={`${urbanist.className} text-white/80 text-base md:text-lg leading-relaxed space-y-6 mb-12 md:mb-16`}
               >
                 <p>
                   <strong>New Delhi, India</strong> – Tensions between neighboring nuclear powers India and Pakistan
@@ -307,7 +307,7 @@ export default function IndiaPakistanTensionsArticle() {
               {/* Related Articles */}
               <div className="border-t border-white/10 pt-8 md:pt-12">
                 <h2
-                  className={`${ppEditorialNewUltralightItalic.className} text-2xl md:text-3xl font-light italic text-white/80 tracking-tighter mb-6 md:mb-8`}
+                  className={`${georgiaPro.className} text-2xl md:text-3xl font-light italic text-white/80 tracking-tighter mb-6 md:mb-8`}
                 >
                   Related Articles
                 </h2>
@@ -402,7 +402,7 @@ export default function IndiaPakistanTensionsArticle() {
 
                 <div className="mt-6 bg-white/5 rounded-lg p-4">
                   <h3
-                    className={`${ppEditorialNewUltralightItalic.className} text-xl font-light italic text-white/80 mb-4`}
+                    className={`${georgiaPro.className} text-xl font-light italic text-white/80 mb-4`}
                   >
                     Latest Updates
                   </h3>

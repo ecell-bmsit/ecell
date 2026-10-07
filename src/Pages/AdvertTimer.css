@@ -1,17 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-@font-face {
-  font-family: 'Robit';
-  src: url('./assets/Robit.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .advert-timer-page {
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -290,7 +282,7 @@
   color: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
   margin-top: 6px;
-  font-family: 'Robit', sans-serif;
+  font-family: var(--font-heading);
   z-index: 20;
   position: relative;
 }
@@ -349,7 +341,7 @@
   letter-spacing: -0.4vw;
   font-variant-numeric: tabular-nums;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Responsive adjustments */

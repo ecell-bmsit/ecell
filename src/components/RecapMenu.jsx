@@ -141,7 +141,7 @@ const RecapMenu = ({ isOpen, onClose }) => {
                   <motion.div variants={contentVars} className="mt-4">
                     <motion.h2 
                       className="text-3xl xl:text-4xl font-black uppercase tracking-tight leading-[0.88] mb-3 text-[#2d2b27] text-left origin-left"
-                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "Playfair Display, Georgia, serif" }}
+                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "var(--font-subheading)" }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       NEWS<br />FLASH
@@ -178,7 +178,7 @@ const RecapMenu = ({ isOpen, onClose }) => {
                     <motion.h2
                       className="font-black uppercase tracking-tight text-[#2d2b27] leading-none text-left origin-left"
                       style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
-                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "Playfair Display, Georgia, serif" }}
+                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "var(--font-subheading)" }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       Events
@@ -221,7 +221,7 @@ const RecapMenu = ({ isOpen, onClose }) => {
                         <motion.h2
                           className="font-black uppercase tracking-tight text-[#2d2b27] leading-none mb-3 text-left origin-left"
                           style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
-                          whileHover={{ fontStyle: "italic", x: 10, fontFamily: "Playfair Display, Georgia, serif" }}
+                          whileHover={{ fontStyle: "italic", x: 10, fontFamily: "var(--font-subheading)" }}
                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
                           Moments
@@ -260,7 +260,7 @@ const RecapMenu = ({ isOpen, onClose }) => {
                       <motion.h2
                         className="font-black uppercase tracking-tight text-[#2d2b27] leading-none mb-3 text-left origin-left"
                         style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
-                        whileHover={{ fontStyle: "italic", x: 10, fontFamily: "Playfair Display, Georgia, serif" }}
+                        whileHover={{ fontStyle: "italic", x: 10, fontFamily: "var(--font-subheading)" }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       >
                         Farewell
@@ -298,7 +298,7 @@ const RecapMenu = ({ isOpen, onClose }) => {
                   <motion.div variants={contentVars} className="z-10">
                     <motion.h2 
                       className="text-2xl xl:text-3xl font-black uppercase tracking-tight text-[#2d2b27] leading-none mb-6 xl:mb-8 text-left origin-left"
-                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "Playfair Display, Georgia, serif" }}
+                      whileHover={{ fontStyle: "italic", x: 10, fontFamily: "var(--font-subheading)" }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       Socials

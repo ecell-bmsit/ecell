@@ -34,7 +34,6 @@ const Spl2 = () => {
     <>
       {/* Google Fonts */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
         .spl-brutalist-stroke {
@@ -123,7 +122,7 @@ const Spl2 = () => {
       <div
         className="overflow-x-hidden spl2-root"
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-body)",
           backgroundColor: "#f9f9f9",
           color: "#1a1c1c",
         }}
@@ -194,7 +193,7 @@ const Spl2 = () => {
                 style={{
                   backgroundColor: "#0046fa",
                   color: "#ffffff",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "1.25rem",
                   padding: "0.5rem 1.5rem",
@@ -218,7 +217,7 @@ const Spl2 = () => {
               <h1
                 className="flex flex-col items-center"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   textTransform: "uppercase",
                   fontStyle: "italic",
@@ -297,7 +296,7 @@ const Spl2 = () => {
                   boxShadow: "8px 8px 0px 0px rgba(26,28,28,1)",
                   cursor: "pointer",
                   transition: "all 0.1s ease",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "1.5rem",
                   textTransform: "uppercase",
@@ -353,7 +352,7 @@ const Spl2 = () => {
                   boxShadow: "8px 8px 0px 0px rgba(187,0,88,1)",
                   cursor: "pointer",
                   transition: "all 0.1s ease",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "1.5rem",
                   textTransform: "uppercase",
@@ -414,7 +413,7 @@ const Spl2 = () => {
                   <React.Fragment key={i}>
                     <span
                       style={{
-                        fontFamily: "'Space Grotesk', sans-serif",
+                        fontFamily: "var(--font-heading)",
                         fontWeight: 900,
                         color: "#d4f000",
                         textTransform: "uppercase",
@@ -463,7 +462,7 @@ const Spl2 = () => {
                 style={{
                   backgroundColor: "#1a1c1c",
                   color: "white",
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   padding: "0.25rem 1rem",
                   textTransform: "uppercase",
@@ -476,7 +475,7 @@ const Spl2 = () => {
               </span>
               <h2
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                   color: "#1a1c1c",
@@ -490,7 +489,7 @@ const Spl2 = () => {
               </h2>
               <p
                 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontSize: "1.125rem",
                   color: "#434659",
                   textAlign: "center",
@@ -501,7 +500,7 @@ const Spl2 = () => {
               </p>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '1.5rem' }}>
                 {["Competitive", "Practical", "Fun & Engaging", "Learning-focused"].map((tag) => (
-                  <span key={tag} style={{ backgroundColor: "#ffffff", border: "3px solid #1a1c1c", boxShadow: "4px 4px 0px 0px rgba(26,28,28,1)", padding: "0.4rem 1.25rem", color: "#1a1c1c", fontSize: "1rem", fontWeight: 700, textTransform: "uppercase", fontFamily: "'Space Grotesk', sans-serif" }}>{tag}</span>
+                  <span key={tag} style={{ backgroundColor: "#ffffff", border: "3px solid #1a1c1c", boxShadow: "4px 4px 0px 0px rgba(26,28,28,1)", padding: "0.4rem 1.25rem", color: "#1a1c1c", fontSize: "1rem", fontWeight: 700, textTransform: "uppercase", fontFamily: "var(--font-heading)" }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -510,10 +509,10 @@ const Spl2 = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Box 1: Event Details */}
               <div style={{ backgroundColor: "#ffffff", border: "4px solid #1a1c1c", padding: "2.5rem", boxShadow: "8px 8px 0px 0px rgba(26,28,28,1)", display: "flex", flexDirection: "column" }}>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#1a1c1c", borderBottom: "4px solid #1a1c1c", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#1a1c1c", borderBottom: "4px solid #1a1c1c", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <span className="material-symbols-outlined" style={{ fontSize: "2rem" }}>event</span> Event Details
                 </h3>
-                <ul className="space-y-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "1.2rem", color: "#1a1c1c", fontWeight: 600 }}>
+                <ul className="space-y-4" style={{ fontFamily: "var(--font-body)", fontSize: "1.2rem", color: "#1a1c1c", fontWeight: 600 }}>
                   <li className="flex justify-between items-center border-b border-gray-200 pb-2">
                     <span style={{ color: "#434659", fontWeight: 800, textTransform: "uppercase", fontSize: "0.9rem" }}>Mode</span>
                     <span>Offline</span>
@@ -535,10 +534,10 @@ const Spl2 = () => {
 
               {/* Box 2: Prize Pool */}
               <div style={{ backgroundColor: "#d4f000", border: "4px solid #1a1c1c", padding: "2.5rem", boxShadow: "8px 8px 0px 0px rgba(26,28,28,1)", display: "flex", flexDirection: "column" }}>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#1a1c1c", borderBottom: "4px solid #1a1c1c", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#1a1c1c", borderBottom: "4px solid #1a1c1c", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <span className="material-symbols-outlined" style={{ fontSize: "2rem" }}>payments</span> Prize Pool
                 </h3>
-                <ul className="space-y-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "1.2rem", color: "#1a1c1c", fontWeight: 700 }}>
+                <ul className="space-y-4" style={{ fontFamily: "var(--font-body)", fontSize: "1.2rem", color: "#1a1c1c", fontWeight: 700 }}>
                   <li className="flex justify-between items-center border-b border-gray-900/10 pb-2">
                     <span style={{ color: "#1a1c1c", fontWeight: 800, textTransform: "uppercase", fontSize: "0.9rem" }}>Winner</span>
                     <span style={{ fontSize: "1.5rem", fontWeight: 900 }}>₹7,000</span>
@@ -551,7 +550,7 @@ const Spl2 = () => {
                     <span style={{ color: "#1a1c1c", fontWeight: 800, textTransform: "uppercase", fontSize: "0.9rem" }}>2nd Runner-up</span>
                     <span style={{ fontSize: "1.1rem", fontWeight: 900 }}>₹3,000</span>
                   </li>
-                  <li className="pt-2 text-[0.95rem] font-semibold text-center mt-auto" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6c7900", fontWeight: 800, textTransform: "uppercase" }}>
+                  <li className="pt-2 text-[0.95rem] font-semibold text-center mt-auto" style={{ fontFamily: "var(--font-heading)", color: "#6c7900", fontWeight: 800, textTransform: "uppercase" }}>
                     Certificates provided to all participants
                   </li>
                 </ul>
@@ -559,10 +558,10 @@ const Spl2 = () => {
 
               {/* Box 3: Team Rules */}
               <div style={{ backgroundColor: "#0046fa", border: "4px solid #1a1c1c", padding: "2.5rem", boxShadow: "8px 8px 0px 0px rgba(26,28,28,1)", display: "flex", flexDirection: "column", color: "#ffffff" }}>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#ffffff", borderBottom: "4px solid #ffffff", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#ffffff", borderBottom: "4px solid #ffffff", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <span className="material-symbols-outlined" style={{ fontSize: "2rem" }}>group</span> Team Rules
                 </h3>
-                <ul className="space-y-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "1.125rem", fontWeight: 600 }}>
+                <ul className="space-y-4" style={{ fontFamily: "var(--font-body)", fontSize: "1.125rem", fontWeight: 600 }}>
                   <li className="flex items-center gap-3">
                     <span className="material-symbols-outlined" style={{ fontWeight: 300, fontSize: "1.5rem", color: "#d4f000" }}>groups</span>
                     <span>Team size: 2–4 members</span>
@@ -584,10 +583,10 @@ const Spl2 = () => {
 
               {/* Box 4: General Rules */}
               <div style={{ backgroundColor: "#bb0058", border: "4px solid #1a1c1c", padding: "2.5rem", boxShadow: "8px 8px 0px 0px rgba(26,28,28,1)", display: "flex", flexDirection: "column", color: "#ffffff" }}>
-                <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#ffffff", borderBottom: "4px solid #ffffff", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontWeight: 900, fontSize: "2rem", textTransform: "uppercase", marginBottom: "1.5rem", color: "#ffffff", borderBottom: "4px solid #ffffff", paddingBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <span className="material-symbols-outlined" style={{ fontSize: "2rem" }}>gavel</span> General Rules
                 </h3>
-                <ul className="space-y-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "1.125rem", fontWeight: 600 }}>
+                <ul className="space-y-4" style={{ fontFamily: "var(--font-body)", fontSize: "1.125rem", fontWeight: 600 }}>
                   <li className="flex items-start gap-3">
                     <span className="material-symbols-outlined mt-1" style={{ fontWeight: 300, color: "#ffd9e0" }}>badge</span>
                     <span>All participants must carry a valid college ID card.</span>
@@ -628,7 +627,7 @@ const Spl2 = () => {
           <div className="max-w-7xl mx-auto">
             <h2
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "var(--font-heading)",
                 fontWeight: 900,
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                 color: "#1a1c1c",
@@ -678,7 +677,7 @@ const Spl2 = () => {
                       backgroundColor: "#d4f000",
                       border: "4px solid #1a1c1c",
                       padding: "0.25rem 1rem",
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 900,
                       fontSize: "1.5rem",
                       color: "#1a1c1c",
@@ -688,7 +687,7 @@ const Spl2 = () => {
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 900,
                       fontSize: "2rem",
                       textTransform: "uppercase",
@@ -702,7 +701,7 @@ const Spl2 = () => {
                   </h3>
                   <p
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: "1.125rem",
                       color: "#434659",
                     }}
@@ -735,7 +734,7 @@ const Spl2 = () => {
               <h2
                 className="spl-text-shadow-brutal"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                   color: "#f9f9f9",
@@ -786,7 +785,7 @@ const Spl2 = () => {
                   <summary
                     style={{
                       padding: "1.5rem",
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 900,
                       fontSize: "1.5rem",
                       textTransform: "uppercase",
@@ -807,7 +806,7 @@ const Spl2 = () => {
                   <div
                     style={{
                       padding: "0 1.5rem 1.5rem 1.5rem",
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontSize: "1.125rem",
                       color: "#434659",
                     }}
@@ -850,7 +849,7 @@ const Spl2 = () => {
               <div>
                 <h2
                   style={{
-                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontFamily: "var(--font-heading)",
                     fontWeight: 900,
                     fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                     color: "#1a1c1c",
@@ -863,7 +862,7 @@ const Spl2 = () => {
                 </h2>
                 <p
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontSize: "1.25rem",
                     color: "#1a1c1c",
                     fontWeight: 600,
@@ -897,7 +896,7 @@ const Spl2 = () => {
                     rel="noopener noreferrer"
                     className={social.className}
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 800,
                       fontSize: "1rem",
                       textTransform: "uppercase",
@@ -939,7 +938,7 @@ const Spl2 = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
               <div
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 900,
                   fontSize: "1.25rem",
                   color: "#1a1c1c",
@@ -962,7 +961,7 @@ const Spl2 = () => {
                     target={item.target || "_self"}
                     rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-heading)",
                       fontWeight: 700,
                       textTransform: "uppercase",
                       fontSize: "1rem",
@@ -991,7 +990,7 @@ const Spl2 = () => {
 
               <div
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 700,
                   textTransform: "uppercase",
                   fontSize: "0.875rem",

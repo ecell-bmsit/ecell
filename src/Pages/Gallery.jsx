@@ -84,14 +84,13 @@ const Gallery = () => {
     <>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
           
           .font-georgia {
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: var(--font-subheading);
           }
           
           .font-sora {
-            font-family: 'Sora', sans-serif;
+            font-family: var(--font-heading);
           }
           
           .masonry-grid {
@@ -128,12 +127,12 @@ const Gallery = () => {
         `}
       </style>
 
-      <div className="min-h-screen bg-white pt-22 pb-16 md:pt-23 px-4">
+      <div className="min-h-screen bg-black pt-22 pb-16 md:pt-23 px-4">
         {/* Navbar removed as it is global */}
         <div className="max-w-7xl mx-auto pt-4 md:pt-16">
           {/* Header Section */}
           <div className="text-center mb-16 md:mb-24">
-            <h1 className="text-[5.5rem] sm:text-8xl md:text-[16vw] text-black tracking-[0.05em] uppercase leading-none" style={{ fontFamily: 'Boreck' }}>
+            <h1 className="text-[5.5rem] sm:text-8xl md:text-[16vw] text-white tracking-[0.05em] uppercase leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
               Gallery
             </h1>
           </div>
