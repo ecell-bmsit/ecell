@@ -68,10 +68,10 @@ const PhoneMenu = ({
           <motion.div
             className="fixed inset-0 z-[99997] bg-black/10 backdrop-blur-md md:hidden"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            animate={{ opacity: 1, transition: { duration: 0.2 } }}
+            exit={{ opacity: 0, transition: { duration: 0.2, delay: isInstantClose ? 0 : 0.9 } }}
             onClick={toggleMenu}
+            style={{ willChange: "opacity" }}
           />
           
           {/* Menu Dropdown */}
@@ -81,7 +81,7 @@ const PhoneMenu = ({
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{
-              duration: isInstantClose ? 0.01 : 1.2,
+              duration: isInstantClose ? 0.01 : 1.0,
               ease: [0.76, 0, 0.24, 1],
             }}
             style={{ fontFamily: "var(--font-body)", willChange: "transform" }}

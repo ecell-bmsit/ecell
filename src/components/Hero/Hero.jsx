@@ -172,12 +172,22 @@ const ECellHero = () => {
 
       {/* Logos Section - responsive positioning */}
       <nav className="flex justify-between items-center px-4 md:px-8 pt-3.5 md:pt-4 relative z-50">
-        {/* Left: All Logos clustered together */}
-        <div className="flex gap-3 md:gap-6 items-end justify-start -translate-x-2 md:-translate-x-4 -translate-y-2 md:translate-y-0">
+        {/* Left: Logo 1 & Logo 2 (and Logo 3 on Mobile) */}
+        <div className="flex gap-3 md:gap-6 items-end justify-start -translate-x-2 md:-translate-x-4 -translate-y-1 md:-translate-y-0.5">
           <img src={bmsitLogo} alt="BMSIT Logo" className="h-10 w-10 md:h-14 md:w-14 object-contain md:-translate-y-6" />
           <img src={bicepLogo} alt="BICEP Logo" className="h-10 w-10 md:h-14 md:w-14 object-contain translate-y-3 md:-translate-y-1" />
-          <img src={ecellLogo} alt="E-Cell Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain translate-y-3 md:-translate-y-1 dark-mode-logo" />
-          <img src={ecellLightLogo} alt="E-Cell Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain scale-[1.3] translate-y-3 md:-translate-y-1 light-mode-logo preserve-color" />
+          
+          {/* Mobile-only Third Logo Wrapper */}
+          <div className="flex md:hidden items-end">
+            <img src={ecellLogo} alt="E-Cell Logo" className="h-8 w-8 object-contain scale-[1.15] -translate-y-0.5 dark-mode-logo" />
+            <img src={ecellLightLogo} alt="E-Cell Logo" className="h-8 w-8 object-contain scale-[1.3] translate-y-3 light-mode-logo preserve-color" />
+          </div>
+        </div>
+
+        {/* Right: Logo 3 (Desktop only) */}
+        <div className="hidden md:flex items-end pr-2 md:pr-4">
+          <img src={ecellLogo} alt="E-Cell Logo" className="h-10 w-10 object-contain scale-[1.15] -translate-y-1.5 dark-mode-logo" />
+          <img src={ecellLightLogo} alt="E-Cell Logo" className="h-10 w-10 object-contain scale-[1.3] translate-y-1 light-mode-logo preserve-color" />
         </div>
       </nav>
 
