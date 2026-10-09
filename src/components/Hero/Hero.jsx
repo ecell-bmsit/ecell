@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import img1 from './assets/img1.webp';
-import img2 from './assets/img2.webp';
-import img3 from './assets/img3.webp';
 import bmsitLogo from '../../assets/bmsit.webp';
 import bicepLogo from '../../assets/bicep.webp';
 import ecellLogo from '../../assets/ecell1.webp';
-import ecellOrLogo from '../../assets/ecellor.webp';
 import ecellLightLogo from '../../assets/ecell.webp';
 
 const cardConfig = [
@@ -17,7 +13,7 @@ const cardConfig = [
     subtitle: "Change Makers",
     gradient: "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)",
     bgColor: "from-red-500 to-red-600",
-    imageUrl: `${img1}`
+    imageUrl: '/hero/img1.webp'
   },
   {
     id: 2,
@@ -26,7 +22,7 @@ const cardConfig = [
     subtitle: "Solutions Matter",
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     bgColor: "from-purple-500 to-purple-600",
-    imageUrl: `${img2}`
+    imageUrl: '/hero/img2.webp'
   },
   {
     id: 3,
@@ -35,49 +31,19 @@ const cardConfig = [
     subtitle: "Future Forward",
     gradient: "linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)",
     bgColor: "from-orange-500 to-orange-600",
-    imageUrl: `${img3}`
+    imageUrl: '/hero/img3.webp'
   }
 ];
 
 const ECellHero = () => {
-  const [animationStage, setAnimationStage] = useState(0);
+  const animationStage = 3;
   const [cardAnimation, setCardAnimation] = useState(0);
 
   useEffect(() => {
-    const preloaded = cardConfig.map((card) => {
-      const img = new Image();
-      img.src = card.imageUrl;
-      if (img.decode) {
-        img.decode().catch(() => {});
-      }
-      return img;
-    });
-
-    return () => {
-      preloaded.forEach((img) => {
-        img.src = "";
-      });
-    };
-  }, []);
-
-  useEffect(() => {
-    const timer1 = setTimeout(() => setAnimationStage(1), 500);
-    const timer2 = setTimeout(() => setAnimationStage(2), 2500);
-    const timer3 = setTimeout(() => setAnimationStage(3), 4000);
-
-
-    const cardTimer = setTimeout(() => {
-      setInterval(() => {
-        setCardAnimation(prev => (prev + 1) % 3);
-      }, 2500);
-    }, 4000);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-      clearTimeout(cardTimer);
-    };
+    const cardTimer = setInterval(() => {
+      setCardAnimation(prev => (prev + 1) % 3);
+    }, 2500);
+    return () => clearInterval(cardTimer);
   }, []);
 
   const renderCardContent = (card) => {
@@ -86,10 +52,10 @@ const ECellHero = () => {
         {card.imageUrl && (
           <img
             src={card.imageUrl}
-            alt={card.imageAlt || "Card image"}
+            alt={card.title}
             className="w-full h-full object-cover"
             loading="eager"
-            fetchPriority="high"
+            fetchPriority={card.id === 3 ? 'high' : 'auto'}
             decoding="async"
           />
         )}

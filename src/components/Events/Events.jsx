@@ -155,7 +155,7 @@ const ECellEventsScroll = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
           >
             <AnimatePresence mode="popLayout">
-              {filteredEvents.map((event, idx) => (
+              {filteredEvents.map((event) => (
                 <motion.div
                   layout
                   variants={cardVariants}
@@ -176,6 +176,8 @@ const ECellEventsScroll = () => {
                     <img
                       src={event.image}
                       alt={event.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
