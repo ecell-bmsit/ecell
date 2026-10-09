@@ -78,8 +78,8 @@ export function IdeaSectionHeader() {
     <div className="w-full bg-black relative z-10 text-white font-sans idea-section-wrapper">
       <LampContainer>
         <motion.h1
-          style={{ fontFamily: 'var(--font-heading)', wordSpacing: '0.4em' }}
-          className="mt-8 px-4 w-full bg-gradient-to-br from-white to-neutral-400 py-4 bg-clip-text text-center text-2xl sm:text-5xl tracking-normal sm:tracking-[0.1em] text-transparent md:text-7xl lg:text-8xl opacity-100 translate-y-0 build-idea-text"
+          style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 4.4vw, 4.5rem)' }}
+          className="mt-8 w-full min-w-0 px-1 sm:px-4 bg-gradient-to-br from-white to-neutral-400 py-4 bg-clip-text text-center tracking-normal text-transparent opacity-100 translate-y-0 build-idea-text"
         >
           <span className="whitespace-nowrap">BUILD YOUR</span>
           <span className="hidden md:inline"> </span>
