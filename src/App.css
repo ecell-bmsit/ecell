@@ -381,3 +381,6 @@ img {
 
 .light-theme .hide-in-light-theme { display: none !important; }
 
+
+.show-in-light-theme { display: none; }
+.light-theme .show-in-light-theme { display: block !important; }

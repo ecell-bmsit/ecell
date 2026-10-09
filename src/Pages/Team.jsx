@@ -189,11 +189,18 @@ const TeamPage = () => {
 
       {/* ════════════ TEAM GRID SECTION (dark, interactive) ════════════ */}
       <div className="bg-black relative overflow-hidden pb-32">
-        {/* Smoothed Blending Gradient to prevent banding */}
+        {/* Smoothed Blending Gradient for Dark Mode */}
         <div 
-          className="hide-in-light-theme w-full h-24 md:h-32 absolute top-0 left-0 right-0 z-0 pointer-events-none"
+          className="hide-in-light-theme w-full h-12 md:h-16 absolute top-0 left-0 right-0 z-0 pointer-events-none"
           style={{ 
             background: 'linear-gradient(to bottom, #f4f4f4 0%, #dcdcdc 15%, #999999 45%, #333333 75%, #000000 100%)' 
+          }}
+        ></div>
+        {/* Smoothed Blending Gradient for Light Mode */}
+        <div 
+          className="show-in-light-theme preserve-color w-full h-12 md:h-16 absolute top-0 left-0 right-0 z-0 pointer-events-none"
+          style={{ 
+            background: 'linear-gradient(to bottom, #f4f4f4 0%, #eeeeee 30%, #f9f9f9 70%, #ffffff 100%)' 
           }}
         ></div>
 
@@ -233,3 +240,4 @@ const TeamPage = () => {
 };
 
 export default TeamPage;
+
