@@ -185,7 +185,7 @@ const ECellHero = () => {
         </div>
 
         {/* Right: Logo 3 (Desktop only) */}
-        <div className="hidden md:flex items-end pr-2 md:pr-4">
+        <div className="hidden md:flex items-end pr-2 md:pr-4 md:translate-x-7">
           <img src={ecellLogo} alt="E-Cell Logo" className="h-10 w-10 object-contain scale-[1.15] -translate-y-1.5 dark-mode-logo" />
           <img src={ecellLightLogo} alt="E-Cell Logo" className="h-10 w-10 object-contain scale-[1.3] translate-y-1 light-mode-logo preserve-color" />
         </div>
