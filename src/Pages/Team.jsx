@@ -1,24 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import teamData from './teamData.json';
 import Footer from '../components/Footer/Footer';
 
 // Group photo for the hero section
-const teamImage = '/team-image-main.png';
-
-// Dynamically import all team member images via Vite glob
-const imageModules = import.meta.glob('./assets/team/*.{jpg,jpeg,png,JPG,HEIF}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-});
+const teamImage = '/team/team-hero.webp';
 
 /* ─────────────────────────────────────────
    TEAM MEMBER CARD (UNBOXED BORDERLESS STYLE)
 ───────────────────────────────────────── */
 const TeamMemberCard = ({ member, large = false }) => {
-  const imageSrc = imageModules[member.image] || member.image;
+  const imageSrc = `/team/${member.image.split('/').pop().replace(/\.[^.]+$/, '.webp')}`;
 
   // Best effort to split name onto two lines per the reference image stylistic preference
   const nameParts = member.name.split(' ');
@@ -36,6 +29,9 @@ const TeamMemberCard = ({ member, large = false }) => {
           src={imageSrc}
           alt={member.name}
           loading="lazy"
+          decoding="async"
+          width="480"
+          height="600"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:grayscale group-hover:grayscale-0 group-hover:scale-[1.03]"
         />
 
@@ -149,6 +145,9 @@ const TeamPage = () => {
                   alt="E-Cell BMSIT Team"
                   loading="eager"
                   fetchPriority="high"
+                  decoding="async"
+                  width="1400"
+                  height="786"
                   className="team-hero-photo w-full h-auto object-contain filter grayscale brightness-[0.86] contrast-[1.08]"
                   style={{
                     maskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',

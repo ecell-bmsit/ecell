@@ -1,0 +1,4 @@
+.desktop-nav-link:hover,
+.desktop-nav-link:focus-visible {
+  color: #111;
+}

@@ -5,6 +5,7 @@ import logo from "../../assets/ecell1.png";
 import { PreloaderContext } from "../../App";
 import PhoneMenu from "./PhoneMenu";
 import "./PhoneMenu.css";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +115,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`px-5 py-1.5 rounded-full text-[14px] tracking-wide transition-all duration-300 whitespace-nowrap ${
+                  className={`desktop-nav-link px-5 py-1.5 rounded-full text-[14px] tracking-wide transition-all duration-300 whitespace-nowrap ${
                     location.pathname === item.to
                       ? "bg-[#D4D4D4] text-black font-semibold shadow-sm"
                       : "text-[#555555] hover:text-black font-medium hover:bg-[#DCDCDC]/50"

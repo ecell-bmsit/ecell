@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "./styles/shadcn.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -380,4 +380,3 @@ img {
 }
 
 .light-theme .hide-in-light-theme { display: none !important; }
-

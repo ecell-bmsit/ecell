@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./src/assets/tick.ico" type="image/x-icon">
+    <link rel="icon" href="/src/assets/ecell1.webp" type="image/webp">
+    <script>
+      const priorityImage = location.pathname === '/team'
+        ? '/team/team-hero.webp'
+        : location.pathname === '/' ? '/hero/img3.webp' : null;
+      if (priorityImage) {
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = priorityImage;
+        preload.type = 'image/webp';
+        preload.fetchPriority = 'high';
+        document.head.append(preload);
+      }
+    </script>
     <title>E-cell</title>
     <style>
       </style>
