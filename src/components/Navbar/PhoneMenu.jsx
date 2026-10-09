@@ -78,11 +78,20 @@ const PhoneMenu = ({
           <motion.div
             className="fixed top-0 left-0 right-0 z-[99998] bg-[#F5F5F5]/45 flex flex-col pt-6 px-4 md:hidden h-[50vh] overflow-y-auto pb-4 shadow-lg"
             initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{
-              duration: isInstantClose ? 0.01 : 1.0,
-              ease: [0.76, 0, 0.24, 1],
+            animate={{ 
+              y: 0,
+              transition: {
+                duration: 1.0,
+                ease: [0.76, 0, 0.24, 1],
+                delay: 0.2 // Wait for background blur to render completely
+              }
+            }}
+            exit={{ 
+              y: "-100%",
+              transition: {
+                duration: isInstantClose ? 0.01 : 1.0,
+                ease: [0.76, 0, 0.24, 1]
+              }
             }}
             style={{ fontFamily: "var(--font-body)", willChange: "transform" }}
           >
