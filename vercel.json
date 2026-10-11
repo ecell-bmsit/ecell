@@ -21,12 +21,26 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/auth/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/counsel/feedback",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/crossword/(.*)",
       "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/internal/retry-sheet-exports",
+      "schedule": "0 3 * * *"
     }
   ]
 }
