@@ -21,7 +21,15 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/auth/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/counsel/feedback",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/crossword/(.*)",
       "destination": "/api/index.js"
     },
     {
