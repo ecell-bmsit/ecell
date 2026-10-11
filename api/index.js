@@ -1,6 +1,19 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const { counselFeedbackHandler } = require("../server/counsel/feedback.cjs");
+const {
+  logoutHandler,
+  requestOtpHandler,
+  requireCollegeAuth,
+  sessionHandler,
+  verifyOtpHandler,
+} = require("../server/auth/otp.cjs");
+const { submitIdeaHandler } = require("../server/ideas/submit.cjs");
+const { retryExportsHandler } = require("../server/ideas/export-retry.cjs");
 
 const app = express();
 
@@ -13,6 +26,15 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+
+// AI Counsel feedback (server-side Groq request; no MongoDB dependency)
+app.post("/api/auth/request-otp", requestOtpHandler);
+app.post("/api/auth/verify-otp", verifyOtpHandler);
+app.get("/api/auth/session", sessionHandler);
+app.post("/api/auth/logout", logoutHandler);
+app.post("/api/counsel/feedback", requireCollegeAuth, counselFeedbackHandler);
+app.post("/api/submit-idea", submitIdeaHandler);
+app.all("/api/internal/retry-sheet-exports", retryExportsHandler);
 
 // ── Mongoose Models (inline to avoid require() issues) ───────────────────────
 

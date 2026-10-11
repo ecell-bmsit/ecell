@@ -9,11 +9,20 @@ const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const Word = require("./models/Word");
-const Idea = require("./models/Idea");
 const GameTeam = require("./models/GameTeam");
 const GameState = require("./models/GameState");
 const HitCounter = require("./models/HitCounter");
 const CrosswordEntry = require("./models/CrosswordEntry");
+const { counselFeedbackHandler } = require("../server/counsel/feedback.cjs");
+const {
+  logoutHandler,
+  requestOtpHandler,
+  requireCollegeAuth,
+  sessionHandler,
+  verifyOtpHandler,
+} = require("../server/auth/otp.cjs");
+const { submitIdeaHandler } = require("../server/ideas/submit.cjs");
+const { retryExportsHandler } = require("../server/ideas/export-retry.cjs");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -236,6 +245,15 @@ app.get("/health", (req, res) => {
   });
 });
 
+// AI Counsel feedback (server-side Groq request; no MongoDB dependency)
+app.post("/api/auth/request-otp", requestOtpHandler);
+app.post("/api/auth/verify-otp", verifyOtpHandler);
+app.get("/api/auth/session", sessionHandler);
+app.post("/api/auth/logout", logoutHandler);
+app.post("/api/counsel/feedback", requireCollegeAuth, counselFeedbackHandler);
+app.post("/api/submit-idea", submitIdeaHandler);
+app.all("/api/internal/retry-sheet-exports", retryExportsHandler);
+
 // Submit failure story
 app.post(
   "/api/submit-story",
@@ -331,49 +349,6 @@ app.post(
       res.status(500).json({
         success: false,
         error: "Failed to submit story. Please try again later.",
-      });
-    }
-  },
-);
-
-// Submit startup idea
-app.post(
-  "/api/submit-idea",
-  submissionLimiter,
-  validateIdeaSubmission,
-  async (req, res) => {
-    try {
-      // Check validation results
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({
-          success: false,
-          error: "Validation failed",
-          details: errors.array(),
-        });
-      }
-
-      const { name, email, idea } = req.body;
-
-      // Save to database
-      const newIdea = new Idea({
-        name,
-        email,
-        idea,
-      });
-
-      await newIdea.save();
-
-      res.json({
-        success: true,
-        message:
-          "Idea submitted successfully! Thank you for sharing your vision.",
-      });
-    } catch (error) {
-      console.error("Error submitting idea:", error);
-      res.status(500).json({
-        success: false,
-        error: "Failed to submit idea. Please try again later.",
       });
     }
   },

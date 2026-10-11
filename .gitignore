@@ -26,5 +26,10 @@ dist-ssr
 # Agents
 .agents
 
+
 # Environment
 .env
+.env.local
+
+secrets/
+google-service-account.json
