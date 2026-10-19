@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import teamData from './teamData.json';
 import Footer from '../components/Footer/Footer';
+import Preloader from '../components/Preloader/Preloader';
 
 // Group photo for the hero section
 const teamImage = '/team-image-main.png';
@@ -101,13 +103,30 @@ const TeamSectionGroup = ({ title, members, isLast, showDivider = true, centered
    MAIN TEAM PAGE
 ───────────────────────────────────────── */
 const TeamPage = () => {
+  const [heroReady, setHeroReady] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const image = new Image();
+    image.onload = () => setHeroReady(true);
+    image.onerror = () => setHeroReady(true);
+    image.src = teamImage;
+
+    return () => {
+      image.onload = null;
+      image.onerror = null;
+    };
   }, []);
 
   // The team roster is now explicitly structured in teamData.json
 
   return (
+    <>
+      {showPreloader && createPortal(
+        <Preloader ready={heroReady} onComplete={() => setShowPreloader(false)} />,
+        document.body
+      )}
     <div className="font-sans selection:bg-[#ff3b1f] selection:text-white">
 
       {/* ════════════ HERO SECTION (original light design) ════════════ */}
@@ -235,6 +254,7 @@ const TeamPage = () => {
       <Footer />
 
     </div>
+    </>
   );
 };
 
