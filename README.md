@@ -1,12 +1,42 @@
-# React + Vite
+# E-Cell BMSIT Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The E-Cell BMSIT website is a React and Vite app with pages for events, the team, alumni, mentors, and the gallery. It also includes interactive event tools and API routes.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install Node.js, then from the repository root:
 
-## Expanding the ESLint configuration
+```bash
+npm ci
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open the local URL printed by Vite. To check a production build:
+
+```bash
+npm run build
+npm run preview
+```
+
+The Vite development server proxies `/api` requests to `http://localhost:3001`. To run the local backend in a second terminal:
+
+```bash
+cd backend
+npm ci
+cp .env.example .env
+npm run dev
+```
+
+Fill in the values you need in `backend/.env`. For frontend Supabase features, set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` in a root `.env` file. Never commit credentials or service-role keys.
+
+## Project layout
+
+- `src/Pages/` contains page components and routes are defined in `src/App.jsx`.
+- `src/components/` contains shared UI components, including the preloader and footer.
+- `public/` contains static images and other assets served from the site root.
+- `api/` contains Vercel API handlers; `backend/` contains the local Express server.
+- `vercel.json` defines rewrites, headers, and a scheduled API task.
+
+## Deployment
+
+The frontend builds with `npm run build` and outputs to `dist/`. Configure required environment variables in the deployment project. Vercel deployment access depends on the Git repository's visibility and the Vercel plan; a README change alone does not resolve a blocked deployment from a private organization repository on a Hobby team.
