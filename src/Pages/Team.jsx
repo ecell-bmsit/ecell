@@ -5,7 +5,7 @@ import teamData from './teamData.json';
 import Footer from '../components/Footer/Footer';
 
 // Group photo for the hero section
-const teamImage = '/team/team-hero.webp';
+const teamImage = '/team-image-main.png';
 
 /* ─────────────────────────────────────────
    TEAM MEMBER CARD (UNBOXED BORDERLESS STYLE)
@@ -146,9 +146,9 @@ const TeamPage = () => {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  width="1400"
-                  height="786"
-                  className="team-hero-photo w-full h-auto object-contain filter grayscale brightness-[0.86] contrast-[1.08]"
+                  width="2400"
+                  height="1347"
+                  className="team-hero-photo w-full h-auto object-contain"
                   style={{
                     maskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, #000 89%, transparent 100%)',

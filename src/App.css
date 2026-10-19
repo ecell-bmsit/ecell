@@ -240,10 +240,9 @@ img {
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* Keep the group photo's grayscale treatment inside the preserved Team hero.
-   The generic image inversion would invert the photo a third time. */
+/* Keep the group photo's original colors inside the preserved Team hero. */
 .light-theme .preserve-color .team-hero-photo {
-  filter: grayscale(1) brightness(0.86) contrast(1.08) !important;
+  filter: none !important;
 }
 
 .light-theme .team-member-card:hover .team-member-name {
