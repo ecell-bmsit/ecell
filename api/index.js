@@ -28,7 +28,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// AI Counsel feedback (server-side Groq request; no MongoDB dependency)
+// AI Counsel feedback (server-side Anthropic request; no MongoDB dependency)
 app.post("/api/auth/request-otp", requestOtpHandler);
 app.post("/api/auth/verify-otp", verifyOtpHandler);
 app.get("/api/auth/session", sessionHandler);

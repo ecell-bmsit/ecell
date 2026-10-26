@@ -272,7 +272,7 @@ async function myIdeasHandler(req, res) {
 
     const { data: submissions, error } = await supabase
       .from('idea_submissions')
-      .select('id,created_at,name,email,title,idea,status,ai_gaps,evaluation_answers')
+      .select('id,created_at,name,email,title,idea,status,ai_gaps,ai_assessment,evaluation_answers')
       .eq('auth_user_id', authenticated.user.id)
       .order('created_at', { ascending: false });
 

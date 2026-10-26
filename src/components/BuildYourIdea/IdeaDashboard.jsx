@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 import { LampContainer } from '../ui/lamp';
+import AssessmentResult from './AssessmentResult';
 
 const OTP_LENGTH = 6;
 
@@ -177,7 +178,7 @@ const IdeaDashboard = ({ showBackLink = true, redirectWhenAuthenticated = false 
       if (supabase && accessToken) {
         const { data, error } = await supabase
           .from('idea_submissions')
-          .select('id, created_at, name, email, title, idea, status, ai_gaps, evaluation_answers')
+          .select('id, created_at, name, email, title, idea, status, ai_gaps, ai_assessment, evaluation_answers')
           .order('created_at', { ascending: false });
 
         if (!error && Array.isArray(data)) {
@@ -977,9 +978,14 @@ const IdeaDashboard = ({ showBackLink = true, redirectWhenAuthenticated = false 
                             {isLong && !isExpanded ? `${item.idea.slice(0, 280)}...` : item.idea}
                           </div>
 
-                          {item.ai_gaps && (
-                            <div className="p-4 rounded-lg bg-white/[0.04] border border-white/10 space-y-2">
-                              {item.ai_gaps && <p className="text-xs text-neutral-300 whitespace-pre-wrap leading-relaxed">{item.ai_gaps}</p>}
+                          {item.ai_assessment ? (
+                            <details className="rounded-xl bg-white/[0.04] p-4 sm:p-5">
+                              <summary className="cursor-pointer text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">View your full assessment</summary>
+                              <div className="mt-6 border-t border-white/10 pt-6"><AssessmentResult result={item.ai_assessment} /></div>
+                            </details>
+                          ) : item.ai_gaps && (
+                            <div className="rounded-xl bg-white/[0.04] p-4">
+                              <p className="text-xs leading-relaxed text-neutral-300 whitespace-pre-wrap">{item.ai_gaps}</p>
                             </div>
                           )}
                           {/* Footer Actions */}
@@ -1070,12 +1076,7 @@ const IdeaDashboard = ({ showBackLink = true, redirectWhenAuthenticated = false 
 
                       {evaluationResult && (
                         <motion.section ref={interviewEvaluationRef} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="mt-10 max-w-3xl border-t border-white/10 pt-7 text-left" style={{ fontFamily: "Satoshi, sans-serif" }}>
-                          <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Idea assessment</h3>
-                          <p className="mt-4 text-sm leading-7 text-neutral-200">{evaluationResult.summary}</p>
-                          <div className="mt-6">
-                            <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-400">Areas to strengthen</h4>
-                            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-300">{evaluationResult.gaps.map((gap, index) => <li key={index}>{gap}</li>)}</ul>
-                          </div>
+                          <AssessmentResult result={evaluationResult} />
                           <p className="mt-6 text-sm font-semibold text-neutral-100">Our Team will Contact you soon.</p>
                         </motion.section>
                       )}

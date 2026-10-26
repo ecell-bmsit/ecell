@@ -28,11 +28,12 @@ async function saveIdeaEvaluationHandler(req, res) {
     const cleanAnswers = answers.map((answer) => answer.trim());
     const evaluation = await requestIdeaEvaluation(submission.idea, cleanAnswers);
     const evaluatedAt = new Date().toISOString();
-    const aiGaps = `${evaluation.summary}\n\n${evaluation.gaps.map((gap) => `• ${gap}`).join('\n')}`;
+    const aiGaps = `${evaluation.summary}\n\n${evaluation.gaps.map((gap) => `- ${gap}`).join('\n')}`;
     const { error: updateError } = await client.from('idea_submissions').update({
       evaluation_answers: cleanAnswers,
       ai_score: evaluation.score,
       ai_gaps: aiGaps,
+      ai_assessment: evaluation,
       evaluated_at: evaluatedAt,
     }).eq('id', submissionId);
     if (updateError) throw updateError;
@@ -44,7 +45,7 @@ async function saveIdeaEvaluationHandler(req, res) {
       teamExport = 'failed';
       console.error('Evaluation saved but Google Sheets update failed:', String(error?.message || 'Unknown error').slice(0, 200));
     }
-    return res.status(200).json({ success: true, summary: evaluation.summary, gaps: evaluation.gaps, teamExport, evaluatedAt });
+    return res.status(200).json({ success: true, ...evaluation, teamExport, evaluatedAt });
   } catch (error) {
     const status = error?.statusCode === 401 || error?.statusCode === 403 ? error.statusCode : 500;
     console.error('Save idea evaluation failed:', { status, message: String(error?.message || 'Unknown error').slice(0, 200) });
