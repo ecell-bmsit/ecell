@@ -12,7 +12,8 @@ const {
   sessionHandler,
   verifyOtpHandler,
 } = require("../server/auth/otp.cjs");
-const { submitIdeaHandler } = require("../server/ideas/submit.cjs");
+const { submitIdeaHandler, myIdeasHandler } = require("../server/ideas/submit.cjs");
+const { saveIdeaEvaluationHandler } = require('../server/ideas/evaluation.cjs');
 const { retryExportsHandler } = require("../server/ideas/export-retry.cjs");
 
 const app = express();
@@ -34,6 +35,8 @@ app.get("/api/auth/session", sessionHandler);
 app.post("/api/auth/logout", logoutHandler);
 app.post("/api/counsel/feedback", requireCollegeAuth, counselFeedbackHandler);
 app.post("/api/submit-idea", submitIdeaHandler);
+app.post('/api/ideas/evaluation', saveIdeaEvaluationHandler);
+app.get("/api/my-ideas", myIdeasHandler);
 app.all("/api/internal/retry-sheet-exports", retryExportsHandler);
 
 // ── Mongoose Models (inline to avoid require() issues) ───────────────────────
@@ -203,3 +206,4 @@ app.post("/api/crossword/admin/reset-sessions", async (req, res) => {
 });
 
 export default app;
+

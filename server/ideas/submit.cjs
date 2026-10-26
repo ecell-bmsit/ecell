@@ -2,24 +2,25 @@
 'use strict';
 
 const { createClient } = require('@supabase/supabase-js');
-const {
-  getBearerToken,
-  verifyCollegeAccessToken,
-} = require('../auth/supabaseAuth.cjs');
+const { getAccountName, getBearerToken, verifyCollegeAccessToken } = require('../auth/supabaseAuth.cjs');
 const { exportSubmissionById } = require('./export.cjs');
 
-function validateIdeaBody(body) {
+function validateIdeaBody(body, accountName = null) {
   const errors = [];
-  const name = typeof body?.name === 'string' ? body.name.trim() : '';
+  const name = typeof accountName === 'string' ? accountName.trim() : '';
+  const title = typeof body?.title === 'string' ? body.title.trim() : '';
   const idea = typeof body?.idea === 'string' ? body.idea.trim() : '';
 
   if (name.length < 2 || name.length > 100) {
     errors.push({
       path: 'name',
-      msg: 'Name must be between 2 and 100 characters',
+      msg: 'Your account name is missing. Please update your account profile before submitting.',
     });
   }
 
+  if (title.length < 3 || title.length > 120) {
+    errors.push({ path: 'title', msg: 'Title must be between 3 and 120 characters' });
+  }
   if (idea.length < 50 || idea.length > 5000) {
     errors.push({
       path: 'idea',
@@ -27,7 +28,7 @@ function validateIdeaBody(body) {
     });
   }
 
-  return { errors, name, idea };
+  return { errors, name, title, idea };
 }
 
 function getUserScopedClient(req) {
@@ -112,7 +113,7 @@ async function submitIdeaHandler(req, res) {
 
   try {
     const authenticated = await verifyCollegeAccessToken(req);
-    const { errors, name, idea } = validateIdeaBody(req.body);
+    const { errors, name, title, idea } = validateIdeaBody(req.body, getAccountName(authenticated.user));
 
     if (errors.length) {
       return res.status(400).json({
@@ -161,6 +162,7 @@ async function submitIdeaHandler(req, res) {
       auth_user_id: authenticated.user.id,
       email: authenticated.email,
       name,
+      title,
       idea,
       status: 'pending',
     };
@@ -176,7 +178,7 @@ async function submitIdeaHandler(req, res) {
       .from('idea_submissions')
       .insert(insertPayload)
       .select(
-        'id,created_at,name,email,idea,status,sheet_export_status,sheet_export_attempts'
+        'id,created_at,name,email,title,idea,status,sheet_export_status,sheet_export_attempts'
       )
       .single();
 
@@ -245,7 +247,73 @@ async function submitIdeaHandler(req, res) {
   }
 }
 
+async function myIdeasHandler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization'
+  );
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({
+      success: false,
+      error: 'Method not allowed',
+    });
+  }
+
+  try {
+    const authenticated = await verifyCollegeAccessToken(req);
+    const supabase = getUserScopedClient(req);
+
+    const { data: submissions, error } = await supabase
+      .from('idea_submissions')
+      .select('id,created_at,name,email,title,idea,status,ai_gaps,evaluation_answers')
+      .eq('auth_user_id', authenticated.user.id)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Fetch ideas error:', error);
+      throw error;
+    }
+
+    return res.status(200).json({
+      success: true,
+      ideas: submissions || [],
+    });
+  } catch (error) {
+    const statusCode =
+      error?.statusCode === 401 || error?.statusCode === 403
+        ? error.statusCode
+        : 500;
+
+    return res.status(statusCode).json({
+      success: false,
+      error:
+        statusCode === 401
+          ? 'Authentication required.'
+          : statusCode === 403
+            ? 'This account is not eligible.'
+            : 'Failed to fetch previous ideas.',
+      ideas: [],
+    });
+  }
+}
+
 module.exports = {
   submitIdeaHandler,
+  myIdeasHandler,
   validateIdeaBody,
 };
+
+
+
+
+
+
+
+

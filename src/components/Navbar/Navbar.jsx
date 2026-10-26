@@ -80,7 +80,7 @@ export default function Navbar() {
     { to: "/team", label: "Team" },
     { to: "/alumni", label: "Alumni" },
     { to: "/word-of-the-day", label: "Word of the Day" },
-    { to: "/build-your-idea", label: "Build Your Idea" },
+    { to: "/#build-your-idea", label: "Build Your Idea", isScroll: true },
   ];
 
   return (
@@ -116,7 +116,7 @@ export default function Navbar() {
                   key={item.to}
                   to={item.to}
                   className={`desktop-nav-link px-5 py-1.5 rounded-full text-[14px] tracking-wide transition-all duration-300 whitespace-nowrap ${
-                    location.pathname === item.to
+                    (location.pathname === item.to || (item.isScroll && location.pathname === "/" && location.hash === "#build-your-idea"))
                       ? "bg-[#D4D4D4] text-black font-semibold shadow-sm"
                       : "text-[#555555] hover:text-black font-medium hover:bg-[#DCDCDC]/50"
                   }`}

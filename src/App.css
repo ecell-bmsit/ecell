@@ -289,7 +289,7 @@ img {
 }
 
 .light-theme .idea-submit-btn:hover {
-  background: linear-gradient(to right, #eeeeee, #cccccc) !important; 
+  background: linear-gradient(to right, #eeeeee, #bbbbbb) !important; 
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.45) !important;
 }
 
@@ -386,4 +386,31 @@ img {
 .show-in-light-theme { display: none; }
 .light-theme .show-in-light-theme { display: block !important; }
 
+/* Custom scrollbar for AI Counsel pane */
+.counsel-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.counsel-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9999px;
+}
+.counsel-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.counsel-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
 
+
+
+/* Keep the portal heading readable through the page-level light-mode inversion. */
+.idea-page-title {
+  color: #f1f5f9;
+  -webkit-text-fill-color: #f1f5f9;
+}
+
+.light-theme .idea-page-title {
+  color: #bbbbbb;
+  -webkit-text-fill-color: #bbbbbb;
+}

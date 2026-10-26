@@ -1,3 +1,5 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap');
+
 /* Shared typography for the site. */
 @font-face {
   font-family: 'Sora';
@@ -146,39 +148,6 @@ h2, h3, h4, h5, h6 {
 }
 
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-
-
-button:focus,
-button:focus-visible {
-  outline: none;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: white;
-  }
-
-  button {
-    background-color: black;
-  }
-}
 
 /* BackgroundRippleEffect animation */
 @keyframes cell-ripple {
@@ -193,4 +162,21 @@ button:focus-visible {
   100% {
     opacity: 0.4;
   }
+}
+
+
+/* Use Satoshi for body copy in the Build Your Idea experience. */
+.build-your-idea-page {
+  font-family: 'Satoshi', sans-serif;
+}
+
+.build-your-idea-page .font-sans {
+  font-family: 'Satoshi', sans-serif;
+}
+
+.build-your-idea-page input,
+.build-your-idea-page textarea,
+.build-your-idea-page select,
+.build-your-idea-page input.font-mono {
+  font-family: 'Satoshi', sans-serif;
 }

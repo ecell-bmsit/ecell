@@ -154,7 +154,7 @@ function App() {
   const [themePreference, setThemePreference] = useState(() => localStorage.getItem("ecell-theme-preference"));
 
   const isSpl3 = location.pathname === "/events/spl3" || location.pathname === "/spl3";
-  const darkByDefaultRoutes = ["/gallery", "/team", "/recap", "/alumni"];
+  const darkByDefaultRoutes = ["/gallery", "/team", "/recap", "/alumni", "/build-your-idea"];
   const isLightMode = themePreference
     ? themePreference === "light"
     : !darkByDefaultRoutes.includes(location.pathname);

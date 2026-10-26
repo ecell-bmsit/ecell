@@ -25,9 +25,13 @@ export default function LampDemo() {
 export const LampContainer = ({
   children,
   className,
+  contentClassName,
+  lampClassName,
 }: {
   children: React.ReactNode;
   className?: string;
+  contentClassName?: string;
+  lampClassName?: string;
 }) => {
   return (
     <div
@@ -36,7 +40,7 @@ export const LampContainer = ({
         className
       )}
     >
-      <div className="hidden md:flex relative w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
+      <div className={cn("hidden md:flex relative w-full flex-1 scale-y-125 items-center justify-center isolate z-0", lampClassName)}>
         <div className="hidden md:flex absolute inset-0 w-full h-full items-center justify-center">
           {/* Left conic beam */}
           <motion.div
@@ -107,7 +111,7 @@ export const LampContainer = ({
         </div>
       </div>
 
-      <div className="relative z-50 flex w-full min-w-0 translate-y-0 md:-translate-y-80 flex-col items-center px-5">
+      <div className={cn("relative z-50 flex w-full min-w-0 translate-y-0 md:-translate-y-80 flex-col items-center px-5", contentClassName)}>
         {children}
       </div>
     </div>

@@ -16,7 +16,7 @@ CRON_SECRET=<random server-only retry secret>
 
 When the backend is started from `backend/`, the relative credentials path resolves to `backend/secrets/`. The implementation also accepts `GOOGLE_SERVICE_ACCOUNT_JSON` for deployment; never put either credential form in frontend/Vite variables.
 
-Share the target spreadsheet with the service account as an editor. The sheet’s first column must contain the stable submission ID; the exporter writes ID, submitted time, name, verified email, idea, and status in columns A–F.
+The sheet's first column must contain the stable submission ID. New submissions use columns A-F for ID, submitted time, name, verified email, idea, and status. After the five-question AI evaluation, columns G-J are updated with score, summary, identified gaps, and evaluation time.
 
 ## Vercel
 
@@ -36,3 +36,5 @@ The retry migration must be applied before deploying the code:
 ```sql
 supabase/migrations/20261010001000_add_sheet_export_state.sql
 ```
+
+

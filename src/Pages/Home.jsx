@@ -58,7 +58,7 @@ const Home = () => {
       <Hero />
       <About />
       <Events />
-      <IdeaSectionHeader />
+      <section id="build-your-idea"><IdeaSectionHeader /></section>
       <Footer />
     </div>
   );

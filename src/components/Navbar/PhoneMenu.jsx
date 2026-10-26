@@ -21,7 +21,7 @@ const PhoneMenu = ({
     { label: "Team", to: "/team" },
     { label: "Alumni", to: "/alumni" },
     { label: "Word of the Day", to: "/word-of-the-day" },
-    { label: "Build Your Idea", to: "/build-your-idea" },
+    { label: "Build Your Idea", to: "/#build-your-idea", isScroll: true },
   ];
 
   const handleLinkClick = (e, item) => {
@@ -34,14 +34,15 @@ const PhoneMenu = ({
         setIsInstantClose(true);
         toggleMenu();
         // Simple window navigation to triggers Home page mount logic
-        window.location.href = "/#footer";
+        window.location.href = item.to;
       } else {
         // Already on home, just scroll
         setIsInstantClose(false);
         toggleMenu();
-        const footer = document.getElementById("footer");
-        if (footer) {
-          footer.scrollIntoView({ behavior: "smooth" });
+        const targetId = item.to.split("#")[1];
+        const target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
         }
       }
     } else {

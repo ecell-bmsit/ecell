@@ -39,6 +39,12 @@ function getEmailDomain(email) {
   return atIndex > 0 ? normalizedEmail.slice(atIndex + 1) : '';
 }
 
+function getAccountName(user) {
+  const metadata = user?.user_metadata || {};
+  const value = [metadata.full_name, metadata.name, metadata.display_name]
+    .find((candidate) => typeof candidate === 'string' && candidate.trim());
+  return typeof value === 'string' ? value.trim().slice(0, 100) : '';
+}
 async function verifySupabaseAccessToken(req) {
   const token = getBearerToken(req);
   if (!token) throw new AuthenticationError();
@@ -77,8 +83,10 @@ async function verifyCollegeAccessToken(req) {
 module.exports = {
   AuthenticationError,
   AuthorizationError,
+  getAccountName,
   getAllowedDomains,
   getBearerToken,
   verifyCollegeAccessToken,
   verifySupabaseAccessToken,
 };
+

@@ -4,6 +4,7 @@ const { createClient } = require('@supabase/supabase-js');
 const {
   AuthorizationError,
   AuthenticationError,
+  getAccountName,
   getAllowedDomains,
   verifyCollegeAccessToken,
 } = require('./supabaseAuth.cjs');
@@ -79,7 +80,7 @@ async function verifyOtpHandler(req, res) {
       access_token: session.access_token,
       refresh_token: session.refresh_token,
       expires_at: session.expires_at,
-      user: { id: verified.user.id, email: verified.email },
+      user: { id: verified.user.id, email: verified.email, name: getAccountName(verified.user) },
     });
   } catch (error) {
     if (error instanceof AuthorizationError || error instanceof AuthenticationError) {
@@ -93,7 +94,7 @@ async function verifyOtpHandler(req, res) {
 async function sessionHandler(req, res) {
   try {
     const { user, email } = await verifyCollegeAccessToken(req);
-    return res.status(200).json({ user: { id: user.id, email } });
+    return res.status(200).json({ user: { id: user.id, email, name: getAccountName(user) } });
   } catch (error) {
     return res.status(error.statusCode || 401).json({ error: 'Authentication required.' });
   }
@@ -126,3 +127,4 @@ module.exports = {
   sessionHandler,
   verifyOtpHandler,
 };
+

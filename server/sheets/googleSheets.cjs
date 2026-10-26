@@ -68,4 +68,19 @@ async function appendSubmissionIfMissing(submission) {
   return { duplicate: false };
 }
 
-module.exports = { appendSubmissionIfMissing, escapeCell };
+async function updateEvaluationInSheet(evaluation) {
+  const sheets = getSheetsClient();
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID || DEFAULT_SHEET_ID;
+  const tabName = process.env.GOOGLE_SHEET_TAB_NAME || DEFAULT_TAB_NAME;
+  const existing = await sheets.spreadsheets.values.get({ spreadsheetId, range: `${tabName}!A:A` });
+  const rowIndex = (existing.data.values || []).findIndex((row) => row[0] === evaluation.id);
+  if (rowIndex < 0) throw new Error('Submission row was not found in the team spreadsheet.');
+  const row = rowIndex + 1;
+  await sheets.spreadsheets.values.update({
+    spreadsheetId, range: `${tabName}!G${row}:J${row}`, valueInputOption: 'RAW',
+    requestBody: { values: [[escapeCell(evaluation.score), escapeCell(evaluation.summary), escapeCell(evaluation.gaps.join(' | ')), escapeCell(evaluation.evaluatedAt)]] },
+  });
+  return { row };
+}
+module.exports = { appendSubmissionIfMissing, escapeCell, updateEvaluationInSheet };
+
