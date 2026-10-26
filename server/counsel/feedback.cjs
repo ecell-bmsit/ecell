@@ -13,7 +13,8 @@ function getApiKey() {
 }
 
 function getModel() {
-  return process.env.ANTHROPIC_MODEL || process.env.MODEL_ID || DEFAULT_MODEL;
+  const configuredModel = process.env.ANTHROPIC_MODEL || process.env.MODEL_ID || DEFAULT_MODEL;
+  return configuredModel === 'claude-opus-5.5' ? DEFAULT_MODEL : configuredModel;
 }
 
 async function requestClaude(system, user, maxTokens = 1800) {
