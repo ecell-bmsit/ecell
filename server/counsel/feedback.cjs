@@ -6,7 +6,11 @@ const path = require('path');
 const MAX_IDEA_LENGTH = 5000;
 const DEFAULT_MODEL = 'claude-opus-5.5';
 const DISCLAIMER = 'AI feedback is for early exploration only. Verify assumptions with real users and mentors; it is not professional, legal, financial, or investment advice.';
-const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
+
+function getMessagesApiUrl() {
+  const baseUrl = (process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/+$/, '');
+  return `${baseUrl}${baseUrl.endsWith('/v1') ? '/messages' : '/v1/messages'}`;
+}
 
 function getApiKey() {
   return process.env.ANTHROPIC_API_KEY || process.env.API_KEY;
@@ -29,7 +33,7 @@ async function requestClaude(system, user, maxTokens = 1800) {
     throw error;
   }
 
-  const response = await fetch(ANTHROPIC_API_URL, {
+  const response = await fetch(getMessagesApiUrl(), {
     method: 'POST',
     headers: {
       'x-api-key': apiKey,
