@@ -157,9 +157,10 @@ function App() {
 
   const isSpl3 = readyLocation.pathname === "/events/spl3" || readyLocation.pathname === "/spl3";
   const darkByDefaultRoutes = ["/gallery", "/team", "/recap", "/alumni", "/build-your-idea"];
-  const isLightMode = themePreference
+  const isTeamPage = readyLocation.pathname === "/team";
+  const isLightMode = !isTeamPage && (themePreference
     ? themePreference === "light"
-    : !darkByDefaultRoutes.includes(readyLocation.pathname);
+    : !darkByDefaultRoutes.includes(readyLocation.pathname));
 
   const handleThemeToggle = (event) => {
     const isKeyboardTrigger = event?.clientX === 0 && event?.clientY === 0;
@@ -296,7 +297,7 @@ function App() {
               </Suspense>
             )}
           </AnimatePresence>
-          {!loading && !isSpl3 && location.pathname !== "/recap" && (
+          {!loading && !isSpl3 && location.pathname !== "/recap" && location.pathname !== "/team" && (
             <button
               type="button"
               role="switch"
