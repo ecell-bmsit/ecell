@@ -47,7 +47,7 @@ async function saveIdeaEvaluationHandler(req, res) {
     }
     return res.status(200).json({ success: true, ...evaluation, teamExport, evaluatedAt });
   } catch (error) {
-    const status = error?.statusCode === 401 || error?.statusCode === 403 ? error.statusCode : 500;
+    const status = [401, 403, 429, 502, 503].includes(error?.statusCode) ? error.statusCode : 500;
     console.error('Save idea evaluation failed:', { status, message: String(error?.message || 'Unknown error').slice(0, 200) });
     return res.status(status).json({ success: false, error: status === 401 ? 'Authentication required.' : 'Unable to complete this evaluation.' });
   }
