@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const MAX_IDEA_LENGTH = 5000;
-const DEFAULT_MODEL = 'claude-opus-5';
+const DEFAULT_MODEL = 'claude-opus-5.5';
 const DISCLAIMER = 'AI feedback is for early exploration only. Verify assumptions with real users and mentors; it is not professional, legal, financial, or investment advice.';
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 
@@ -13,8 +13,7 @@ function getApiKey() {
 }
 
 function getModel() {
-  const configuredModel = process.env.ANTHROPIC_MODEL || process.env.MODEL_ID || DEFAULT_MODEL;
-  return configuredModel === 'claude-opus-5.5' ? DEFAULT_MODEL : configuredModel;
+  return process.env.ANTHROPIC_MODEL || process.env.MODEL_ID || DEFAULT_MODEL;
 }
 
 async function requestClaude(system, user, maxTokens = 1800) {
