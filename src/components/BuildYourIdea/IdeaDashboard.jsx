@@ -193,8 +193,13 @@ const IdeaDashboard = ({ showBackLink = true, redirectWhenAuthenticated = false 
         const response = await fetch('/api/my-ideas', {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('application/json')) {
+          throw new Error('Unable to load previous ideas.');
+        }
         const result = await response.json();
-        if (response.ok && Array.isArray(result.ideas)) {
+        if (!response.ok) throw new Error(result.error || 'Unable to load past submissions.');
+        if (Array.isArray(result.ideas)) {
           setMyIdeas(result.ideas);
           setLoadingIdeas(false);
           return;

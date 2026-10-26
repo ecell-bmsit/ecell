@@ -38,6 +38,14 @@
       "destination": "/api/index.js"
     },
     {
+      "source": "/api/my-ideas",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/ideas/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
