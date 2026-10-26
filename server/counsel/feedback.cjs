@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const MAX_IDEA_LENGTH = 5000;
-const DEFAULT_MODEL = 'claude-opus-5.5';
+const DEFAULT_MODEL = 'claude-opus-5';
 const DISCLAIMER = 'AI feedback is for early exploration only. Verify assumptions with real users and mentors; it is not professional, legal, financial, or investment advice.';
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_API_VERSION = '2023-06-01';
@@ -14,7 +14,8 @@ function getApiKey() {
 }
 
 function getModel() {
-  return process.env.MODEL_ID || process.env.ANTHROPIC_MODEL || DEFAULT_MODEL;
+  const configuredModel = process.env.MODEL_ID || process.env.ANTHROPIC_MODEL || DEFAULT_MODEL;
+  return configuredModel === 'claude-opus-5.5' ? DEFAULT_MODEL : configuredModel;
 }
 
 async function requestClaude(system, user, maxTokens = 1800) {
@@ -46,6 +47,18 @@ async function requestClaude(system, user, maxTokens = 1800) {
   });
 
   if (!response.ok) {
+    let providerMessage = '';
+    try {
+      const providerBody = await response.json();
+      providerMessage = String(providerBody?.error?.message || '').slice(0, 300);
+    } catch {
+      providerMessage = 'No readable provider error details.';
+    }
+    console.error('Anthropic request rejected:', {
+      status: response.status,
+      model: getModel(),
+      message: providerMessage,
+    });
     const error = new Error(`Anthropic request failed with status ${response.status}.`);
     error.statusCode = response.status === 429 ? 429 : 502;
     throw error;
