@@ -3,6 +3,7 @@ import {
   useEffect,
   createContext,
   useRef,
+  useDeferredValue,
   Suspense,
   lazy,
   Component
@@ -68,7 +69,7 @@ class ErrorBoundary extends Component {
       return (
         <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: "2rem", background: "#f7f7f7", color: "#171717", fontFamily: "system-ui, sans-serif" }}>
           <section role="alert" style={{ width: "min(100%, 32rem)", textAlign: "center" }}>
-            <h1 style={{ margin: "0 0 0.75rem", fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>We couldn’t load this page</h1>
+            <h1 style={{ margin: "0 0 0.75rem", fontSize: "clamp(1.75rem, 5vw, 2.5rem)" }}>We could not load this page</h1>
             <p style={{ margin: "0 0 1.5rem", color: "#555", lineHeight: 1.6 }}>
               The site may have updated while it was open. Reload the page to get the latest version.
             </p>
@@ -127,7 +128,7 @@ const NotFound = lazy(() => import("./Pages/NotFound.jsx"));
 export const PreloaderContext = createContext();
 
 // NavigationWatcher: Component that listens for route changes
-const NavigationWatcher = ({ setLoading, setShowContent, setDisplayLocation }) => {
+const NavigationWatcher = ({ setDisplayLocation }) => {
   const location = useLocation();
   const prevPath = useRef(location.pathname);
 
@@ -135,12 +136,10 @@ const NavigationWatcher = ({ setLoading, setShowContent, setDisplayLocation }) =
     // Only trigger if path actually changed and it's not the initial mount
     if (prevPath.current !== location.pathname) {
       setDisplayLocation(location); // Immediately sync route so correct page renders
-      setLoading(true);
-      setShowContent(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
       prevPath.current = location.pathname;
     }
-  }, [location, setLoading, setShowContent, setDisplayLocation]);
+  }, [location, setDisplayLocation]);
 
   return null;
 };
@@ -148,16 +147,19 @@ const NavigationWatcher = ({ setLoading, setShowContent, setDisplayLocation }) =
 function App() {
   const location = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
+  // Keep the current page on screen while a lazy route is still downloading.
+  const readyLocation = useDeferredValue(displayLocation);
   const hasSeenPreloader = sessionStorage.getItem("preloaderShown");
-  const [loading, setLoading] = useState(!hasSeenPreloader);
-  const [showContent, setShowContent] = useState(!!hasSeenPreloader);
+  const showHomePreloader = location.pathname === "/" && !location.hash && !hasSeenPreloader;
+  const [loading, setLoading] = useState(showHomePreloader);
+  const [showContent, setShowContent] = useState(!showHomePreloader);
   const [themePreference, setThemePreference] = useState(() => localStorage.getItem("ecell-theme-preference"));
 
-  const isSpl3 = location.pathname === "/events/spl3" || location.pathname === "/spl3";
+  const isSpl3 = readyLocation.pathname === "/events/spl3" || readyLocation.pathname === "/spl3";
   const darkByDefaultRoutes = ["/gallery", "/team", "/recap", "/alumni", "/build-your-idea"];
   const isLightMode = themePreference
     ? themePreference === "light"
-    : !darkByDefaultRoutes.includes(location.pathname);
+    : !darkByDefaultRoutes.includes(readyLocation.pathname);
 
   const handleThemeToggle = (event) => {
     const isKeyboardTrigger = event?.clientX === 0 && event?.clientY === 0;
@@ -214,12 +216,10 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <PreloaderContext.Provider value={{ loading, setLoading }}>
+      <PreloaderContext.Provider value={{ loading }}>
         <WordProvider>
         {/* We move Router to wrap everything including useLocation usage */}
         <NavigationWatcher
-          setLoading={setLoading}
-          setShowContent={setShowContent}
           setDisplayLocation={setDisplayLocation}
         />
         {shouldShowNavbar && <Navbar />}
@@ -228,16 +228,15 @@ function App() {
             {loading ? (
               <Preloader key="preloader" onComplete={handlePreloaderComplete} />
             ) : (
-              <motion.div
-                key="content"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: showContent ? 1 : 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`min-h-screen ${isLightMode && !isSpl3 && location.pathname !== '/recap' ? 'light-theme' : ''}`}
-              >
-                <Suspense fallback={<div className="min-h-screen"></div>}>
+              <Suspense key="content" fallback={<div role="status" className="min-h-screen bg-white text-black flex items-center justify-center">Loading page…</div>}>
+                <motion.div
+                  initial={false}
+                  animate={{ opacity: showContent ? 1 : 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className={`min-h-screen ${isLightMode && !isSpl3 && readyLocation.pathname !== '/recap' ? 'light-theme' : ''}`}
+                >
                   <ClearChunkRecoveryMarker />
-                  <Routes location={displayLocation}>
+                  <Routes location={readyLocation}>
                     <Route path="/" element={<Home />} />
                     <Route path="/word-of-the-day" element={<WordOfTheDay />} />
                     <Route
@@ -293,8 +292,8 @@ function App() {
                     <Route path="/advert/lead" element={<AdvertLead />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
-                </Suspense>
-              </motion.div>
+                </motion.div>
+              </Suspense>
             )}
           </AnimatePresence>
           {!loading && !isSpl3 && location.pathname !== "/recap" && (

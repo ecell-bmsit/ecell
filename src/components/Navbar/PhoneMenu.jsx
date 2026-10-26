@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { PreloaderContext } from "../../App";
-import logo from "../../assets/ecell.png";
 import "./PhoneMenu.css";
 
 const PhoneMenu = ({
@@ -12,7 +10,6 @@ const PhoneMenu = ({
   setIsInstantClose,
 }) => {
   const location = useLocation();
-  const { setLoading } = useContext(PreloaderContext);
 
   const displayItems = [
     { label: "Home", to: "/" },
@@ -30,7 +27,6 @@ const PhoneMenu = ({
 
       if (location.pathname !== "/") {
         // Navigate to Home first
-        setLoading(true);
         setIsInstantClose(true);
         toggleMenu();
         // Simple window navigation to triggers Home page mount logic
@@ -51,7 +47,6 @@ const PhoneMenu = ({
 
       if (isNewPage) {
         setIsInstantClose(true);
-        setLoading(true);
         toggleMenu();
       } else {
         // Same page - slow collapse

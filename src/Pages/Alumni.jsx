@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import ali from "./assets/mdAli.jpeg";
-import meghana from "./assets/meghana.jpg";
-import suhas from "./assets/suhas.jpg";
-import shashank from "./assets/shashank.jpeg";
-import chandana from "./assets/chandana.jpg";
-import syeeda from "./assets/syeeda.jpg";
-import adithya from "./assets/adithya.jpg";
-import gul from "./assets/gul.jpeg";
-import sarvani from "./assets/sarvani.jpg";
-
-import maxsonImg from "./assets/team/maxson.JPG";
-import mohitImg from "./assets/team/mohit.webp";
-import nishithaImg from "./assets/team/nishitha.webp";
-import gaganjithImg from "./assets/team/gaganjith.jpg";
-import shriyaImg from "./assets/team/shriya.jpg";
-import hiteshImg from "./assets/team/hitesh.jpeg";
-import bhanuImg from "./assets/team/bhanu.JPG";
-import fardeeImg from "./assets/team/fardeen.jpeg";
+const portrait = (name) => `/alumni/${name}.webp`;
 
 import Footer from "../components/Footer/Footer";
 
@@ -52,7 +35,9 @@ const AlumniCard = ({ member, index }) => {
           <img
             src={member.image}
             alt={member.name}
-            loading="lazy"
+            loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "auto"}
+            decoding="async"
             className="w-full h-full object-cover"
           />
           {/* Grayscale Overlay - Bypasses Dark Mode Extension Bugs */}
@@ -93,7 +78,7 @@ const alumniData = {
         name: "Shashank Gowda S",
         position: "President",
         year: "2024/25",
-        image: shashank,
+        image: portrait("shashank"),
         color: "#9e3cec",
       },
       {
@@ -101,7 +86,7 @@ const alumniData = {
         name: "Shri Adithya",
         position: "Mentor",
         year: "2024/25",
-        image: adithya,
+        image: portrait("adithya"),
         color: "#f97315",
       },
       {
@@ -109,7 +94,7 @@ const alumniData = {
         name: "Mohammed Ali A",
         position: "Tech Head",
         year: "2024/25",
-        image: ali,
+        image: portrait("mdali"),
         color: "#14c9e1",
       },
       {
@@ -117,7 +102,7 @@ const alumniData = {
         name: "Syeeda",
         position: "Design Head",
         year: "2024/25",
-        image: syeeda,
+        image: portrait("syeeda"),
         color: "#9e3cec",
       },
       {
@@ -125,7 +110,7 @@ const alumniData = {
         name: "Suhas B S",
         position: "Operations Head",
         year: "2024/25",
-        image: suhas,
+        image: portrait("suhas"),
         color: "#f97315",
       },
       {
@@ -133,7 +118,7 @@ const alumniData = {
         name: "R Chandana",
         position: "Marketing Head",
         year: "2024/25",
-        image: chandana,
+        image: portrait("chandana"),
         color: "#14c9e1",
       },
       {
@@ -141,7 +126,7 @@ const alumniData = {
         name: "R Sarvani",
         position: "Marketing Vice Head",
         year: "2024/25",
-        image: sarvani,
+        image: portrait("sarvani"),
         color: "#9e3cec",
       },
       {
@@ -149,7 +134,7 @@ const alumniData = {
         name: "Meghana N M",
         position: "Content Vice Head",
         year: "2024/25",
-        image: meghana,
+        image: portrait("meghana"),
         color: "#f97315",
       },
       {
@@ -157,7 +142,7 @@ const alumniData = {
         name: "Gul Bhatia",
         position: "Operations Vice Head",
         year: "2024/25",
-        image: gul,
+        image: portrait("gul"),
         color: "#14c9e1",
       },
       {
@@ -165,7 +150,7 @@ const alumniData = {
         name: "Maxson Mathew",
         position: "President",
         year: "2025/26",
-        image: maxsonImg,
+        image: portrait("maxson"),
         color: "#9e3cec",
       },
       {
@@ -173,7 +158,7 @@ const alumniData = {
         name: "Mohit Monnappa T N",
         position: "Mentor",
         year: "2025/26",
-        image: mohitImg,
+        image: portrait("mohit"),
         color: "#f97315",
       },
       {
@@ -181,7 +166,7 @@ const alumniData = {
         name: "Nishitha Bodipati",
         position: "Vice President",
         year: "2025/26",
-        image: nishithaImg,
+        image: portrait("nishitha"),
         color: "#14c9e1",
       },
       {
@@ -189,7 +174,7 @@ const alumniData = {
         name: "Gaganjith R",
         position: "Events Head",
         year: "2025/26",
-        image: gaganjithImg,
+        image: portrait("gaganjith"),
         color: "#9e3cec",
       },
       {
@@ -197,7 +182,7 @@ const alumniData = {
         name: "Shriya Chowdary",
         position: "Content Head",
         year: "2025/26",
-        image: shriyaImg,
+        image: portrait("shriya"),
         color: "#f97315",
       },
       {
@@ -205,7 +190,7 @@ const alumniData = {
         name: "Hitesh R",
         position: "Media Head",
         year: "2025/26",
-        image: hiteshImg,
+        image: portrait("hitesh"),
         color: "#14c9e1",
       },
       {
@@ -213,7 +198,7 @@ const alumniData = {
         name: "Bhanu Prasad N",
         position: "Media Vice Head",
         year: "2025/26",
-        image: bhanuImg,
+        image: portrait("bhanu"),
         color: "#9e3cec",
       },
       {
@@ -221,7 +206,7 @@ const alumniData = {
         name: "Fardeen Khan K",
         position: "Corporate Relations Head",
         year: "2025/26",
-        image: fardeeImg,
+        image: portrait("fardeen"),
         color: "#f97315",
       },
     ],

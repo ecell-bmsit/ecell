@@ -1,61 +1,18 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Footer from '../components/Footer/Footer';
-
-// Image Imports
-import img1 from '../assets/image1.webp';
-import img2 from '../assets/image2.webp';
-import img3 from '../assets/image3.webp';
-import img4 from '../assets/image4.webp';
-import img5 from '../assets/image5.webp';
-import img6 from '../assets/image6.webp';
-import img7 from '../assets/image7.webp';
-import img8 from '../assets/image8.webp';
-import img9 from '../assets/image9.webp';
-import img10 from '../assets/image10.webp';
-import img11 from '../assets/image11.webp';
-import img12 from '../assets/image12.webp';
-import img13 from '../assets/image13.webp';
-import img14 from '../assets/image14.webp';
-import img15 from '../assets/image15.webp';
-import img16 from '../assets/image16.webp';
-import img17 from '../assets/image17.webp';
-import img18 from '../assets/image18.webp';
-import img19 from '../assets/image19.webp';
-import img20 from '../assets/image20.webp';
-import img21 from '../assets/image21.webp';
-import img22 from '../assets/image22.webp';
-import img23 from '../assets/image23.jpg';
-import img24 from '../assets/image24.webp';
-import img25 from '../assets/image25.webp';
-import img26 from '../assets/image26.webp';
-import img27 from '../assets/image27.webp';
-import img28 from '../assets/image28.webp';
-import img29 from '../assets/image29.webp';
-import img30 from '../assets/image30.webp';
-import img31 from '../assets/image31.webp';
-import img32 from '../assets/image32.webp';
-import img33 from '../assets/image33.webp';
-import img34 from '../assets/image34.webp';
-import img35 from '../assets/image35.webp';
-import img37 from '../assets/image37.webp';
-import img38 from '../assets/image38.webp';
-import img39 from '../assets/image39.webp';
-import img40 from '../assets/image40.webp';
-import img41 from '../assets/image41.webp';
-import img42 from '../assets/image42.webp';
-import img43 from '../assets/image43.webp';
+import Preloader from '../components/Preloader/Preloader';
 
 const ALL_IMAGES = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
-  img31, img32, img33, img34, img35, img37, img38, img39, img40,
-  img41, img42, img43,
-];
+  ...Array.from({ length: 35 }, (_, index) => index + 1),
+  ...Array.from({ length: 7 }, (_, index) => index + 37),
+].map((number) => `/gallery/image${number}.webp`);
 
 const PRIORITY_COUNT = 4;
 
 const Gallery = () => {
+  const [imagesReady, setImagesReady] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(true);
   const shuffledImages = useMemo(() => {
     const galleryData = ALL_IMAGES.map((src, index) => ({
       id: index + 1,
@@ -72,16 +29,26 @@ const Gallery = () => {
     return galleryData;
   }, []);
 
-  const [visibleCount] = useState(shuffledImages.length);
+  useEffect(() => {
+    let active = true;
+    Promise.all(shuffledImages.map(({ src }) => new Promise((resolve) => {
+      const image = new Image();
+      image.onload = resolve;
+      image.onerror = resolve;
+      image.src = src;
+    }))).then(() => {
+      if (active) setImagesReady(true);
+    });
 
-  const visibleImages = useMemo(
-    () => shuffledImages.slice(0, visibleCount),
-    [shuffledImages, visibleCount]
-  );
-
+    return () => { active = false; };
+  }, [shuffledImages]);
 
   return (
     <>
+      {showPreloader && createPortal(
+        <Preloader ready={imagesReady} onComplete={() => setShowPreloader(false)} />,
+        document.body
+      )}
       <style>
         {`
           
@@ -127,19 +94,19 @@ const Gallery = () => {
         `}
       </style>
 
-      <div className="min-h-screen bg-black pt-22 pb-16 md:pt-23 px-4">
+      <div className="min-h-screen bg-white pt-22 pb-16 md:pt-23 px-4">
         {/* Navbar removed as it is global */}
         <div className="max-w-7xl mx-auto pt-4 md:pt-16">
           {/* Header Section */}
           <div className="text-center mb-16 md:mb-24">
-            <h1 className="text-[5.5rem] sm:text-8xl md:text-[16vw] text-white tracking-[0.05em] uppercase leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h1 className="text-[5.5rem] sm:text-8xl md:text-[16vw] text-black tracking-[0.05em] uppercase leading-none" style={{ fontFamily: 'var(--font-heading)' }}>
               Gallery
             </h1>
           </div>
 
           {/* Masonry Gallery Grid */}
           <div className="masonry-grid">
-            {visibleImages.map((image, index) => {
+            {shuffledImages.map((image, index) => {
               const isPriority = index < PRIORITY_COUNT;
               return (
                 <div

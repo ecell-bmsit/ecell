@@ -40,22 +40,30 @@ const ScrambleText = ({ targetText, isReady }) => {
   return <span>{text}</span>;
 }
 
-const Preloader = ({ onComplete }) => {
+const Preloader = ({ onComplete, ready = true }) => {
   const [step, setStep] = useState(0);
+  const [animationFinished, setAnimationFinished] = useState(false);
 
   useEffect(() => {
     const t0 = setTimeout(() => setStep(1), 300);  // Scramble locks
     const t1 = setTimeout(() => setStep(2), 800); // Reveal words horizontally
     const t2 = setTimeout(() => setStep(3), 1400); // Slide words BELOW (stack vertically)
 
-    const t3 = setTimeout(() => setStep(4), 2200); // Fade out entire preloader
-    const t4 = setTimeout(() => {
-      setStep(5);
-      if (onComplete) onComplete();
-    }, 2800); // Unmount and transition
+    const t3 = setTimeout(() => setAnimationFinished(true), 2200);
 
-    return () => { clearTimeout(t0); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
-  }, [onComplete]);
+    return () => { clearTimeout(t0); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, []);
+
+  useEffect(() => {
+    if (!animationFinished || !ready) return;
+
+    setStep(4);
+    const finish = setTimeout(() => {
+      setStep(5);
+      onComplete?.();
+    }, 600);
+    return () => clearTimeout(finish);
+  }, [animationFinished, ready, onComplete]);
 
   if (step === 5) return null;
 
@@ -69,7 +77,7 @@ const Preloader = ({ onComplete }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] bg-[#000000] flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-[1000001] bg-white flex items-center justify-center overflow-hidden"
       initial={{ opacity: 1 }}
       animate={{ opacity: step === 4 ? 0 : 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -89,7 +97,7 @@ const Preloader = ({ onComplete }) => {
                 <motion.div
                   layout
                   key={row.id}
-                  className={`flex ${step >= 3 ? 'flex-col space-y-0 sm:-space-y-2 md:-space-y-4 lg:-space-y-3' : 'flex-row gap-0'} items-center justify-center tracking-tight sm:tracking-tighter text-white font-bold sm:font-semibold text-[35px] leading-[0.95] sm:text-5xl md:text-6xl lg:text-[80px] sm:leading-none text-center px-4`}
+                  className={`flex ${step >= 3 ? 'flex-col space-y-0 sm:-space-y-2 md:-space-y-4 lg:-space-y-3' : 'flex-row gap-0'} items-center justify-center tracking-tight sm:tracking-tighter text-black font-bold sm:font-semibold text-[35px] leading-[0.95] sm:text-5xl md:text-6xl lg:text-[80px] sm:leading-none text-center px-4`}
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
 
@@ -97,7 +105,7 @@ const Preloader = ({ onComplete }) => {
                   <motion.div
                     layout
                     layoutId={row.id === 2 ? "global-text" : undefined}
-                    className="whitespace-nowrap text-[#B8C0C2]"
+                    className="whitespace-nowrap text-black"
                   >
                     <ScrambleText targetText={row.w1} isReady={step >= 1} />
                   </motion.div>
